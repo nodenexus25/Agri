@@ -9,7 +9,6 @@ import CaneDevelopment from "./pages/CaneDevelopment";
 import Products from "./pages/Products";
 import AmrutSanjivani from "./pages/AmrutSanjivani";
 import Sustainability from "./pages/Sustainability";
-import Gallery from "./pages/Gallery";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -90,14 +89,6 @@ export default function App() {
               element={
                 <PageWrapper>
                   <Sustainability />
-                </PageWrapper>
-              }
-            />
-            <Route
-              path="/gallery"
-              element={
-                <PageWrapper>
-                  <Gallery />
                 </PageWrapper>
               }
             />

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Leaf, Phone } from "lucide-react";
+import { Menu, X, Leaf, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -10,7 +10,6 @@ const navLinks = [
   { to: "/products", label: "Products" },
   { to: "/amrut-sanjivani", label: "Amrut Sanjivani" },
   { to: "/sustainability", label: "Sustainability" },
-  { to: "/gallery", label: "Gallery" },
   { to: "/contact", label: "Contact" }
 ];
 
@@ -43,7 +42,7 @@ export default function Navbar() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative rounded-full border transition-all duration-500 overflow-hidden ${
+          className={`relative rounded-2xl md:rounded-3xl border transition-all duration-500 overflow-hidden ${
             scrolled
               ? "bg-neutral-light/80 border-neutral-dark/10 shadow-[0_8px_32px_rgba(26,26,26,0.08)]"
               : "bg-neutral-light/55 border-white/40"
@@ -98,18 +97,17 @@ export default function Navbar() {
 
             <div className="hidden md:flex items-center gap-3 ml-3">
               <a
-                href="tel:+917266202400"
-                className="flex items-center gap-1.5 text-sm text-neutral-dark/70 hover:text-cane-green-dark transition-colors"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-cane-green/8 border border-cane-green/15 text-sm font-semibold text-neutral-dark hover:bg-cane-green hover:text-white transition-all"
               >
-                <Phone size={14} />
-                <span className="hidden xl:inline">Farmer Helpdesk</span>
+                <span className="relative">
+                  <span className="absolute inset-0 rounded-full blur-[6px] bg-harvest-gold/30 opacity-60 group-hover:opacity-100 transition-opacity" />
+                  <span className="relative">Sanjivani Group</span>
+                </span>
+                <ArrowUpRight size={14} />
               </a>
-              <Link
-                to="/contact"
-                className="inline-flex items-center h-10 px-5 rounded-full bg-neutral-dark text-neutral-light text-sm font-medium hover:bg-cane-green-dark transition-colors duration-300"
-              >
-                Get in Touch
-              </Link>
             </div>
 
             <button

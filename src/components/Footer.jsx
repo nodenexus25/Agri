@@ -67,15 +67,19 @@ export default function Footer() {
         <div className="grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="inline-flex items-center gap-2.5 group">
-              <span className="w-10 h-10 rounded-full bg-gradient-to-br from-cane-green to-cane-green-dark flex items-center justify-center text-white">
-                <Leaf size={18} strokeWidth={2.4} />
+              <span className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden bg-white ring-1 ring-white/20 shrink-0">
+                <img
+                  src="/Sanjivani Group 2(1).png"
+                  alt="Sanjivani Group"
+                  className="w-full h-full object-contain"
+                />
               </span>
               <div className="leading-tight">
                 <p className="font-display text-lg font-semibold tracking-tight">
                   Sanjivani <span className="text-cane-green-light">Agriculture</span>
                 </p>
                 <p className="text-[11px] text-white/50 uppercase tracking-[0.14em] -mt-0.5">
-                  Cooperative Sugar Factory · Est. 1960
+                  Subsidiary of Sanjivani Group
                 </p>
               </div>
             </Link>

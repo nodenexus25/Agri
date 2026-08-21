@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Leaf, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -50,15 +50,23 @@ export default function Navbar() {
         >
           <div className="flex items-center justify-between pl-5 sm:pl-7 pr-3 sm:pr-5 h-14 md:h-16">
             <Link to="/" className="flex items-center gap-2.5 group">
-              <span className="w-9 h-9 rounded-full bg-gradient-to-br from-cane-green to-cane-green-dark flex items-center justify-center text-white shadow-sm">
-                <Leaf size={18} strokeWidth={2.4} />
+              <span className="w-9 h-9 rounded-full flex items-center justify-center overflow-hidden bg-white shadow-sm ring-1 ring-neutral-dark/5 shrink-0">
+                <img
+                  src="/Sanjivani Group 2(1).png"
+                  alt="Sanjivani Group"
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                    e.currentTarget.parentElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-cane-green-dark"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.5c2 1.5.5 5-1.2 7-1 1-2 1.5-3 1.5 1.5 3 1.5 5-4 9"/><path d="M2 21c0-3 1.85-5.36 5.08-5.95C10 14.5 14.5 14 16 12"/></svg>`;
+                  }}
+                />
               </span>
               <div className="leading-tight">
                 <p className="font-display text-[15px] md:text-base font-semibold text-neutral-dark tracking-tight">
-                  Sanjivani <span className="text-cane-green">Agri</span>
+                  Sanjivani <span className="text-cane-green">Agriculture</span>
                 </p>
                 <p className="text-[10px] md:text-[11px] text-neutral-mid uppercase tracking-[0.12em] -mt-0.5">
-                  Sugar · Cane · Ethanol
+                  Subsidiary of Sanjivani Group
                 </p>
               </div>
             </Link>
@@ -95,18 +103,26 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="hidden md:flex items-center gap-3 ml-3">
+            <div className="hidden md:flex items-center gap-3 ml-3 h-full pr-1 -mr-2 sm:mr-0">
               <a
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-cane-green/8 border border-cane-green/15 text-sm font-semibold text-neutral-dark hover:bg-cane-green hover:text-white transition-all"
+                className="group flex items-center h-full"
+                aria-label="Sanjivani Group"
               >
-                <span className="relative">
-                  <span className="absolute inset-0 rounded-full blur-[6px] bg-harvest-gold/30 opacity-60 group-hover:opacity-100 transition-opacity" />
-                  <span className="relative">Sanjivani Group</span>
-                </span>
-                <ArrowUpRight size={14} />
+                <div className="relative h-full flex items-center px-2 sm:px-3 py-1.5">
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 h-8 w-px bg-neutral-dark/10" />
+                  <img
+                    src="/Sanjivani Group 2(1).png"
+                    alt="Sanjivani Group"
+                    className="h-full w-auto object-contain drop-shadow-sm group-hover:drop-shadow-md transition-all duration-300 group-hover:scale-[1.02]"
+                  />
+                  <ArrowUpRight
+                    size={13}
+                    className="ml-1.5 self-start mt-1 text-neutral-mid group-hover:text-cane-green-dark group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"
+                  />
+                </div>
               </a>
             </div>
 

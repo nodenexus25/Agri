@@ -1,9 +1,8 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
-  BookOpen,
-  Users,
   Sprout,
   Candy,
   Droplet,
@@ -14,15 +13,12 @@ import {
   Shield
 } from "lucide-react";
 import SEO from "../components/SEO";
-import AnimatedCounter from "../components/AnimatedCounter";
 import ByProductCard from "../components/ByProductCard";
 import CircularEconomyDiagram from "../components/CircularEconomyDiagram";
-import { stats } from "../data/siteData";
 import { byProducts } from "../data/products";
-import { leadership } from "../data/leadership";
 
-const heroImage =
-  "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=wide%20panoramic%20aerial%20view%20of%20vast%20green%20sugarcane%20fields%20at%20golden%20hour%20india%20farmer%20walking%20among%20cane%20rows%20dramatic%20warm%20sunset%20light%20editorial%20photography%20cinematic%20hdr&image_size=landscape_16_9";
+const heroSlides = ["/home1.png", "/home2.png", "/home3.png"];
+const heroImage = heroSlides[0];
 
 const productQuicklinks = [
   { key: "sugar", name: "Refined Sugar", Icon: Candy, tone: "text-harvest-gold-dark bg-harvest-gold/10" },
@@ -33,156 +29,67 @@ const productQuicklinks = [
 ];
 
 export default function Home() {
+  const [slideIndex, setSlideIndex] = useState(0);
+
+  useEffect(() => {
+    if (heroSlides.length < 2) return;
+    const t = setInterval(() => {
+      setSlideIndex((i) => (i + 1) % heroSlides.length);
+    }, 3500);
+    return () => clearInterval(t);
+  }, []);
   return (
     <>
       <SEO
         title="Rooted in Cooperation, Growing with Innovation"
-        description="63+ year-old cooperative sugar factory producing refined sugar, ethanol and sustainable by-products. Farmer-first agriculture, modern technology, and a zero-waste circular economy."
+        description="Farmer-owned cooperative sugar factory producing refined sugar, ethanol and sustainable by-products. Six decades of farmer-first agriculture, modern technology, and a zero-waste circular economy."
         keywords="sanjivani sugar factory maharashtra, cooperative sugar plant, sugarcane ethanol maharashtra, farmer support cooperative"
         image={heroImage}
         path="/"
       />
 
-      <section className="relative min-h-screen flex items-end overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-r from-cane-green-dark/90 via-cane-green-dark/70 to-cane-green-dark/30"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-t from-neutral-dark/70 via-transparent to-transparent"
-        />
-        <div
-          aria-hidden
-          className="absolute top-1/4 right-10 w-96 h-96 rounded-full bg-harvest-gold/20 blur-3xl mix-blend-screen"
-        />
+      <section className="relative min-h-[100vh] md:min-h-[100vh] overflow-hidden">
+        <AnimatePresence mode="wait">
+          {heroSlides.map(
+            (src, i) =>
+              i === slideIndex && (
+                <motion.img
+                  key={i}
+                  src={src}
+                  alt=""
+                  aria-hidden
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                  onError={(e) => {
+                    e.currentTarget.style.display = "none";
+                  }}
+                />
+              )
+          )}
+        </AnimatePresence>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-48 md:pt-56 pb-20 md:pb-28">
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-3xl"
-          >
-            <motion.p
-              initial={{ opacity: 0, x: -14 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-neutral-light text-[11px] md:text-xs font-semibold uppercase tracking-[0.22em] mb-7"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-harvest-gold animate-pulse" />
-              Est. 1960 · 63+ Years of Cooperative Leadership
-            </motion.p>
-
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold text-neutral-light leading-[0.98] tracking-tight">
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.35, duration: 0.7 }}
-                className="block"
-              >
-                Rooted in
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.7 }}
-                className="block text-harvest-gold"
-              >
-                Cooperation.
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.65, duration: 0.7 }}
-                className="block"
-              >
-                Growing with <span className="text-cane-green-light">Innovation.</span>
-              </motion.span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.85, duration: 0.7 }}
-              className="mt-7 text-base md:text-xl text-neutral-light/85 leading-relaxed max-w-2xl"
-            >
-              From fertile fields to refined excellence — we deliver sugar, ethanol, and sustainable
-              by-products that fuel food, energy, and agriculture across India and beyond.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.05, duration: 0.6 }}
-              className="mt-9 flex flex-col sm:flex-row items-start sm:items-center gap-3.5"
-            >
-              <Link
-                to="/about"
-                className="group inline-flex items-center gap-2 px-6 py-4 rounded-full bg-harvest-gold hover:bg-harvest-gold-light text-neutral-dark text-sm md:text-base font-semibold transition-colors shadow-[0_14px_35px_-14px_rgba(198,142,23,0.65)]"
-              >
-                Read Our Story
-                <BookOpen size={16} />
-              </Link>
-              <Link
-                to="/cane-development"
-                className="group inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/15 text-neutral-light text-sm md:text-base font-semibold transition-all"
-              >
-                Farmer Support Programs
-                <Sprout size={16} className="group-hover:rotate-6 transition-transform" />
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.35, duration: 0.7 }}
-              className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-4xl"
-            >
-              {[
-                ["50,000+", "Farmer Members"],
-                ["1.2 Lakh", "Acres Cane Area"],
-                ["12", "Cane Development Programs"],
-                ["100%", "Farmer-owned Cooperative"]
-              ].map(([v, l]) => (
-                <div key={l}>
-                  <p className="font-display text-2xl md:text-3xl font-semibold text-neutral-light tabular-nums">
-                    {v}
-                  </p>
-                  <p className="mt-1 text-[11px] md:text-xs uppercase tracking-[0.16em] text-white/55">
-                    {l}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section className="relative py-16 md:py-24 bg-neutral-light border-b border-neutral-dark/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-8 items-start">
-            {stats.map((s, i) => (
-              <AnimatedCounter
-                key={s.id}
-                value={s.value}
-                suffix={s.suffix}
-                label={s.label}
-                description={s.description}
-                delay={i * 0.12}
-                className="text-center md:text-left"
+        {heroSlides.length > 1 && (
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+            {heroSlides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setSlideIndex(i)}
+                aria-label={`Go to slide ${i + 1}`}
+                className={`transition-all duration-300 rounded-full ${
+                  i === slideIndex
+                    ? "w-8 h-2 bg-harvest-gold shadow-[0_0_12px_rgba(198,142,23,0.6)]"
+                    : "w-2 h-2 bg-white/40 hover:bg-white/60"
+                }`}
               />
             ))}
           </div>
-        </div>
+        )}
       </section>
 
-      <section className="relative py-24 md:py-32">
+      <section className="relative py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-5 gap-14 items-center">
             <motion.div
@@ -202,14 +109,10 @@ export default function Home() {
                 Six decades strong.
               </h2>
               <p className="mt-6 text-[15px] md:text-base text-neutral-dark/75 leading-relaxed">
-                Founded in 1960 by Late Hon. Shri. Shankar Rao Genuji Kolhe Saheb, our factory is
-                100% owned by the farmers whose cane we crush. Every surplus rupee returns to the
-                village — in irrigation, schools, roads, and the next season's subsidies.
-              </p>
-              <p className="mt-4 text-[15px] md:text-base text-neutral-dark/75 leading-relaxed">
-                Today, under Shri. Bipindada Kolhe and Shri. Vivek Kolhe, we're investing in 6,000
-                MT/day expansion, drone spraying, and Juice-to-Ethanol — the same cooperative soul,
-                modern technology underneath.
+                Founded in 1960 by Late Hon. Shri. Shankar Rao Genuji Kolhe Saheb, our farmer-owned
+                cooperative returns every surplus to the village — irrigation, schools, roads, and
+                next-season subsidies. Today, under Shri. Bipindada Kolhe and Shri. Vivek Kolhe,
+                we're modernizing the mill with drone spraying and Juice-to-Ethanol expansion.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3.5">
                 <Link
@@ -223,7 +126,6 @@ export default function Home() {
                   to="/about#leadership"
                   className="inline-flex items-center gap-1.5 px-4 py-3 text-sm font-semibold text-neutral-dark/80 hover:text-cane-green-dark transition-colors"
                 >
-                  <Users size={15} />
                   Meet the Leadership
                 </Link>
               </div>
@@ -243,8 +145,8 @@ export default function Home() {
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-[1200ms]"
                 />
                 <figcaption className="absolute bottom-4 left-4 right-4 rounded-2xl px-4 py-3 bg-neutral-dark/70 backdrop-blur text-neutral-light text-[12px] md:text-sm">
-                  <span className="font-semibold">Members for life.</span> Three generations of the
-                  Patil family, Sindkhed Raja taluka — associated with the cooperative since 1978.
+                  <span className="font-semibold">Members for life.</span> Three generations —
+                  associated since 1978.
                 </figcaption>
               </figure>
               <figure className="col-span-2 rounded-[24px] overflow-hidden">
@@ -279,8 +181,8 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-md text-sm md:text-[15px] text-neutral-dark/70 leading-relaxed">
-              From premium food-grade refined sugar to ethanol, renewable power and organic manure —
-              every part of the sugarcane stalk is put to work.
+              Premium refined sugar, ethanol, renewable power, and organic manure — every part of
+              the stalk is put to work.
             </p>
           </div>
 
@@ -349,12 +251,11 @@ export default function Home() {
                   Empowering Farmers. <br />
                   <span className="text-harvest-gold">Enriching Land.</span>
                 </h2>
-                <p className="mt-5 text-sm md:text-lg text-white/80 leading-relaxed max-w-xl">
-                  Twelve structured programs — from seed development and soil testing to drone
-                  spraying and drip irrigation financing — designed so every farmer in our command
-                  area gets the inputs, advice, and credit to grow more, with less.
+                <p className="mt-5 text-sm md:text-base text-white/80 leading-relaxed max-w-lg">
+                  Twelve structured programs — seeds, soil testing, drone spraying, drip
+                  financing — so every farmer gets the inputs and advice to grow more, with less.
                 </p>
-                <div className="mt-8 flex flex-wrap gap-2">
+                <div className="mt-7 flex flex-wrap gap-2">
                   {[
                     "Soil & Water Testing",
                     "Subsidized Seeds",
@@ -371,7 +272,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-                <div className="mt-9 flex flex-wrap gap-3.5">
+                <div className="mt-8 flex flex-wrap gap-3.5">
                   <Link
                     to="/cane-development"
                     className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-harvest-gold hover:bg-harvest-gold-light text-neutral-dark text-sm font-semibold transition-colors"
@@ -399,22 +300,22 @@ export default function Home() {
                 {[
                   {
                     t: "Cane Seed Program",
-                    d: "Three-tier nucleus, foundation, and certified seed multiplication every year.",
+                    d: "Three-tier certified seed multiplication.",
                     img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=close%20up%20of%20healthy%20sugarcane%20seed%20setts%20being%20selected%20and%20treated%20at%20farm%20nursery%20agriculture%20macro%20photography&image_size=square"
                   },
                   {
                     t: "Soil Health Lab",
-                    d: "NPK, pH, EC and micro-nutrient analysis at ₹250/sample — results in 48 hours.",
+                    d: "NPK + micronutrient analysis — results in 48h.",
                     img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=soil%20testing%20laboratory%20indian%20agriculture%20extension%20officer%20analyzing%20soil%20sample%20test%20tubes%20colorful%20reagents%20professional%20lighting&image_size=square"
                   },
                   {
                     t: "Drip Installation",
-                    d: "4% simple-interest financing, full subsidy assistance, and technical support.",
+                    d: "4% simple-interest financing + subsidy support.",
                     img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=technician%20installing%20drip%20irrigation%20system%20in%20young%20sugarcane%20field%20water%20droplets%20on%20tubes%20rural%20india&image_size=square"
                   },
                   {
                     t: "Drone Spraying",
-                    d: "12-liter agricultural drones — uniform coverage at ₹60/acre for members.",
+                    d: "12-liter agri-drones — ₹60/acre for members.",
                     img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=agricultural%20drone%20low%20altitude%20spraying%20fertilizer%20on%20sugarcane%20field%20india%20mist%20visible%20sunny%20day%20drone%20pilot%20observing&image_size=square"
                   }
                 ].map((it, i) => (
@@ -465,125 +366,6 @@ export default function Home() {
           </div>
 
           <CircularEconomyDiagram compact />
-        </div>
-      </section>
-
-      <section id="leadership" className="relative py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-14">
-            <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-harvest-gold mb-4">
-              <span className="h-px w-7 bg-harvest-gold/70" />
-              Leadership
-            </p>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold text-neutral-dark tracking-tight leading-[1.05]">
-              Same soul. <span className="text-cane-green-dark">Sharper tools.</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-            {leadership.map((l, i) => (
-              <motion.article
-                key={l.name}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className="group relative bg-white rounded-[32px] border border-neutral-dark/6 p-6 md:p-8 overflow-hidden"
-              >
-                <div
-                  aria-hidden
-                  className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-cane-green/[0.07] group-hover:bg-cane-green/[0.11] transition-colors"
-                />
-                <div className="relative flex flex-col sm:flex-row items-start gap-6">
-                  <div className="w-28 h-28 md:w-32 md:h-32 shrink-0 rounded-[24px] overflow-hidden border border-neutral-dark/8 bg-neutral-light">
-                    <img
-                      src={l.photo}
-                      alt={l.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-cane-green-dark mb-1.5">
-                      {l.role}
-                    </p>
-                    <h3 className="font-display text-2xl md:text-3xl font-semibold text-neutral-dark leading-tight tracking-tight">
-                      {l.name}
-                    </h3>
-                    <p className="mt-4 text-[14px] md:text-[15px] text-neutral-dark/70 leading-relaxed">
-                      {l.bio}
-                    </p>
-                    <div className="mt-5 flex flex-wrap gap-1.5">
-                      {l.values.map((v) => (
-                        <span
-                          key={v}
-                          className="text-[11px] px-3 py-1 rounded-full bg-neutral-dark/5 text-neutral-dark/75"
-                        >
-                          {v}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-[40px] md:rounded-[48px] overflow-hidden bg-gradient-to-br from-neutral-dark via-neutral-dark to-earth-brown-dark text-neutral-light p-8 md:p-14 lg:p-18">
-            <div
-              aria-hidden
-              className="absolute top-0 left-0 w-full h-full opacity-10 bg-[radial-gradient(circle_at_30%_20%,rgba(198,142,23,0.6),transparent_55%),radial-gradient(circle_at_80%_80%,rgba(76,175,80,0.55),transparent_50%)]"
-            />
-            <div className="relative grid md:grid-cols-5 gap-10 items-center">
-              <div className="md:col-span-3">
-                <p className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-[11px] font-semibold uppercase tracking-[0.2em] mb-6">
-                  Farmer Helpdesk
-                </p>
-                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
-                  Have a question, a field, or a crop that needs attention?
-                </h2>
-                <p className="mt-5 text-sm md:text-lg text-white/75 leading-relaxed max-w-xl">
-                  Our Cane Development extension team covers every taluka in our command area.
-                  Tell us what you need — we'll assign an officer and schedule a visit within 48 hours.
-                </p>
-              </div>
-              <div className="md:col-span-2">
-                <div className="rounded-[28px] bg-white/[0.06] border border-white/10 p-6 backdrop-blur-sm space-y-4">
-                  {[
-                    { k: "Cane Development Office", v: "+91 7266 202 450" },
-                    { k: "Main Factory Reception", v: "+91 7266 202 400" },
-                    { k: "Email", v: "farmerhelpdesk@sanjivani-agri.coop" },
-                    { k: "Hours", v: "Mon–Sat · 9:00 AM – 6:00 PM IST" }
-                  ].map((it) => (
-                    <div key={it.k} className="flex items-start justify-between gap-4 py-1.5">
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50 mt-0.5">
-                        {it.k}
-                      </p>
-                      <p className="text-sm md:text-[15px] font-medium text-right">{it.v}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-5 flex flex-col sm:flex-row gap-3">
-                  <Link
-                    to="/contact"
-                    className="flex-1 group inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-harvest-gold hover:bg-harvest-gold-light text-neutral-dark text-sm font-semibold transition-colors"
-                  >
-                    Submit Farmer Request
-                    <ArrowRight size={14} />
-                  </Link>
-                  <Link
-                    to="/contact#general"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 border border-white/15 hover:bg-white/15 text-white text-sm font-semibold transition-colors"
-                  >
-                    General Enquiry
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
     </>

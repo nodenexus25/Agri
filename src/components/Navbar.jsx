@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -19,7 +19,7 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -31,33 +31,33 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         scrolled
-          ? "py-3 md:py-4"
-          : "py-5 md:py-7"
+          ? "opacity-100 translate-y-0 py-3 md:py-4 pointer-events-auto"
+          : "opacity-0 -translate-y-3 py-5 md:py-7 pointer-events-none"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.nav
-          initial={{ y: -20, opacity: 0 }}
+          initial={false}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className={`relative rounded-2xl md:rounded-3xl border transition-all duration-500 overflow-hidden ${
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className={`relative rounded-2xl md:rounded-[999px] border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden ${
             scrolled
-              ? "bg-neutral-light/80 border-neutral-dark/10 shadow-[0_8px_32px_rgba(26,26,26,0.08)]"
+              ? "bg-neutral-light/80 border-neutral-dark/10 shadow-[0_12px_40px_-12px_rgba(26,26,26,0.18)]"
               : "bg-neutral-light/55 border-white/40"
-          } backdrop-blur-xl [backdrop-filter:blur(14px)_saturate(1.4)]`}
+          } backdrop-blur-xl [backdrop-filter:blur(16px)_saturate(1.5)]`}
         >
-          <div className="flex items-center justify-between pl-5 sm:pl-7 pr-3 sm:pr-5 h-14 md:h-16">
-            <Link to="/" className="flex items-center gap-2.5 group">
-              <span className="w-9 h-9 rounded-full flex items-center justify-center overflow-hidden bg-white shadow-sm ring-1 ring-neutral-dark/5 shrink-0">
+          <div className="flex items-center justify-between pl-5 sm:pl-7 pr-3 sm:pr-5 h-[72px] md:h-20">
+            <Link to="/" className="flex items-center gap-4 group">
+              <span className="w-[62px] h-[62px] rounded-2xl flex items-center justify-center overflow-hidden bg-white shadow-sm ring-1 ring-neutral-dark/5 shrink-0">
                 <img
                   src="/Sanjivani Group 2(1).png"
                   alt="Sanjivani Group"
                   className="w-full h-full object-contain"
                   onError={(e) => {
                     e.currentTarget.style.display = "none";
-                    e.currentTarget.parentElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="text-cane-green-dark"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.5c2 1.5.5 5-1.2 7-1 1-2 1.5-3 1.5 1.5 3 1.5 5-4 9"/><path d="M2 21c0-3 1.85-5.36 5.08-5.95C10 14.5 14.5 14 16 12"/></svg>`;
+                    e.currentTarget.parentElement.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" class="text-cane-green-dark"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.5c2 1.5.5 5-1.2 7-1 1-2 1.5-3 1.5 1.5 3 1.5 5-4 9"/><path d="M2 21c0-3 1.85-5.36 5.08-5.95C10 14.5 14.5 14 16 12"/></svg>`;
                   }}
                 />
               </span>
@@ -65,8 +65,8 @@ export default function Navbar() {
                 <p className="font-display text-[15px] md:text-base font-semibold text-neutral-dark tracking-tight">
                   Sanjivani <span className="text-cane-green">Agriculture</span>
                 </p>
-                <p className="text-[10px] md:text-[11px] text-neutral-mid uppercase tracking-[0.12em] -mt-0.5">
-                  Subsidiary of Sanjivani Group
+                <p className="text-[10px] md:text-[11px] text-neutral-mid uppercase tracking-[0.18em] -mt-0.5">
+                  Sanjivani Brand &middot; Since &middot; 1962
                 </p>
               </div>
             </Link>
@@ -103,32 +103,11 @@ export default function Navbar() {
               ))}
             </div>
 
-            <div className="hidden md:flex items-center gap-3 ml-3 h-full pr-1 -mr-2 sm:mr-0">
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center h-full"
-                aria-label="Sanjivani Group"
-              >
-                <div className="relative h-full flex items-center px-2 sm:px-3 py-1.5">
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 h-8 w-px bg-neutral-dark/10" />
-                  <img
-                    src="/Sanjivani Group 2(1).png"
-                    alt="Sanjivani Group"
-                    className="h-full w-auto object-contain drop-shadow-sm group-hover:drop-shadow-md transition-all duration-300 group-hover:scale-[1.02]"
-                  />
-                  <ArrowUpRight
-                    size={13}
-                    className="ml-1.5 self-start mt-1 text-neutral-mid group-hover:text-cane-green-dark group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all duration-300"
-                  />
-                </div>
-              </a>
-            </div>
-
             <button
               onClick={() => setOpen((v) => !v)}
-              className="lg:hidden ml-2 w-10 h-10 rounded-full flex items-center justify-center text-neutral-dark hover:bg-neutral-dark/5 transition-colors"
+              className={`lg:hidden ml-2 w-10 h-10 rounded-full flex items-center justify-center text-neutral-dark hover:bg-neutral-dark/5 transition-colors ${
+                scrolled ? "opacity-100" : "opacity-70"
+              }`}
               aria-label="Toggle menu"
             >
               {open ? <X size={20} /> : <Menu size={20} />}

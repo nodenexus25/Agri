@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 const defaults = {
   title: "Sanjivani Group — Agriculture Division | Sugar & Cane Development",
   description:
-    "Sahakar Maharshi Shankar Rao Kolhe Sahakari Sakhar Karkhana Ltd. 63+ year old farmer cooperative producing refined sugar, ethanol, and sustainable by-products with dedicated cane development support.",
+    "Sahakar Maharshi Shankar Rao Kolhe Sahakari Sakhar Karkhana Ltd. Farmer cooperative producing refined sugar, ethanol, and sustainable by-products with dedicated cane development support.",
   keywords:
     "cooperative sugar factory Maharashtra, sugarcane by-products India, farmer support sugar cooperative, Sanjivani sugar factory, juice to ethanol distillery"
 };

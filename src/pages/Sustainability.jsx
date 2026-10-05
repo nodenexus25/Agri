@@ -16,17 +16,16 @@ import SEO from "../components/SEO";
 import PageHeader from "../components/PageHeader";
 import CircularEconomyDiagram from "../components/CircularEconomyDiagram";
 
-const heroImage =
-  "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=aerial%20drone%20view%20lush%20green%20sugarcane%20fields%20sunset%20drip%20irrigation%20lines%20renewable%20solar%20panel%20farm%20adjacent%20modern%20sustainability%20cinematic%20landscape&image_size=landscape_16_9";
+const heroImage = "/Sustainability.png";
 
 const impact = [
   {
     Icon: Zap,
     title: "Bagasse Cogeneration",
-    metric: "22 MW",
+    metric: "Renewable",
     description:
-      "In-house bagasse-fueled boilers & turbines power our entire crushing operation — surplus feeds the state grid.",
-    points: ["100% renewable during crushing season", "Surplus to MSEDCL grid (Nov–Feb)", "Replaces ~40,000 MT coal/season"]
+      "In-house bagasse-fueled boilers power our entire crushing operation — surplus feeds the state grid.",
+    points: ["Renewable during crushing", "Surplus to state grid", "Displaces fossil fuel each season"]
   },
   {
     Icon: Droplets,
@@ -34,23 +33,23 @@ const impact = [
     metric: "ZLD Certified",
     description:
       "Condensate recovery, multi-effect evaporation, and press-mud composting ensure zero process water leaves our premises.",
-    points: ["92% process water recycled", "Mill effluent → press mud compost", "No discharge into local water bodies"]
+    points: ["Water recycled season-long", "Effluent → press mud compost", "No water discharge"]
   },
   {
     Icon: Wind,
     title: "Air Quality & Emissions",
     metric: "CPCB Compliant",
     description:
-      "Bagasse boilers fitted with ESP (electrostatic precipitators) and continuous stack emissions monitoring (24×7 online).",
-    points: ["PM < 50 mg/Nm³", "SOx & NOx within norms", "Quarterly third-party audit"]
+      "Bagasse boilers fitted with ESP (electrostatic precipitators) and continuous stack emissions monitoring.",
+    points: ["Particulate norms met", "SOx & NOx within limits", "Quarterly audits"]
   },
   {
     Icon: Trees,
     title: "Command-Area Afforestation",
-    metric: "1,20,000+ Saplings",
+    metric: "Mass Planting",
     description:
-      "Every member farmer gets free saplings — avenue trees, fruit orchards, and agroforestry on bunds & farm ponds.",
-    points: ["110+ villages covered", "Mango, tamarind, neem, teak", "5-year survival tracking"]
+      "Every member farmer gets free saplings — avenue trees, fruit orchards, and agroforestry on bunds & ponds.",
+    points: ["Dozens of villages covered", "Mango, neem, teak, tamarind", "Survival tracking"]
   }
 ];
 
@@ -59,7 +58,7 @@ export default function Sustainability() {
     <>
       <SEO
         title="Sustainability — Circular Economy & Renewable Energy"
-        description="Responsible agriculture: sugarcane by-products into renewable energy, organic fertilizers, and E20 ethanol. Bagasse cogeneration, zero liquid discharge, and 120,000+ saplings planted in our command area."
+        description="Responsible agriculture: sugarcane by-products into renewable energy, organic fertilizers, and E20 ethanol. Bagasse cogeneration, zero liquid discharge, and sapling drives across our command area."
         keywords="circular economy sugar factory, bagasse cogeneration maharashtra, zero liquid discharge sugar mill, ethanol carbon reduction maharashtra"
         path="/sustainability"
       />
@@ -67,7 +66,7 @@ export default function Sustainability() {
       <PageHeader
         eyebrow="Sustainability & Innovation"
         title="We believe in responsible agriculture."
-        lead="By converting every by-product into renewable energy and organic fertilizers, we minimize waste, maximize value — and ensure a greener tomorrow for every village in our command area."
+        lead="Converting every by-product into renewable energy and organic manure — minimizing waste, maximizing value, and ensuring a greener tomorrow for every village in our command area."
         backgroundImage={heroImage}
       />
 
@@ -82,14 +81,14 @@ export default function Sustainability() {
           <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
             <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-cane-green-dark mb-4">
               <Award size={12} />
-              Measured Impact · FY 2024–25
+              Commitments & Outcomes
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-semibold text-neutral-dark tracking-tight leading-[1.08]">
-              Four pillars. <span className="text-harvest-gold">Real numbers.</span>
+              Four pillars. <span className="text-harvest-gold">Real outcomes.</span>
             </h2>
             <p className="mt-5 text-[15px] md:text-base text-neutral-dark/70 leading-relaxed">
-              Every quarter, we publish our impact — energy generated, water recycled, emissions
-              audited, and saplings planted. Because a promise to the land should be measurable.
+              Every quarter we publish our impact — energy, water, emissions, and community saplings.
+              Because a promise to the land should be measurable.
             </p>
           </div>
 
@@ -160,16 +159,16 @@ export default function Sustainability() {
                 Sustainability doesn't end at our factory gate.
               </h2>
               <p className="mt-5 text-[15px] md:text-base text-neutral-dark/75 leading-relaxed">
-                Our cooperative's 1.2 lakh acre command area is where the real green work happens —
-                micro-irrigation, farm ponds, soil carbon restoration, and sapling distribution.
-                Every one of our 12 Cane Development programs has a sustainability layer underneath.
+                Our registered command area is where the real green work happens — micro-irrigation,
+                farm ponds, soil carbon restoration, and sapling distribution. All Cane Development
+                programs carry a sustainability layer underneath.
               </p>
               <ul className="mt-7 space-y-3">
                 {[
-                  ["Drip adoption", "12,000+ acres converted — 60% less water, +22% yield"],
-                  ["Farm ponds", "220+ structures — drought resilience for 8,000+ acres"],
-                  ["Bio-compost use", "15,000 MT organic manure returned to soils annually"],
-                  ["Micro-nutrient mapping", "Village-level soil GIS — precision NPK prescription"]
+                  ["Drip adoption", "Expanded across command area — less water, more yield"],
+                  ["Farm ponds", "Village-level structures for drought resilience"],
+                  ["Bio-compost use", "Press mud compost returned to fields each season"],
+                  ["Soil mapping", "Village-level analysis — precision NPK prescription"]
                 ].map(([k, v]) => (
                   <li key={k} className="flex items-start gap-3.5 p-4 rounded-2xl bg-neutral-light border border-neutral-dark/5">
                     <span className="w-9 h-9 shrink-0 rounded-xl bg-white border border-neutral-dark/8 flex items-center justify-center text-cane-green-dark">
@@ -238,13 +237,13 @@ export default function Sustainability() {
                   Sanjivani Group — Shared Narrative
                 </p>
                 <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.05] tracking-tight">
-                  Our sustainability story doesn't stop here — it flows into the Chemical Division.
+                  Our sustainability story flows into the Chemical Division.
                 </h2>
-                <p className="mt-5 text-sm md:text-lg text-white/78 leading-relaxed max-w-2xl">
+                <p className="mt-5 text-sm md:text-base text-white/78 leading-relaxed max-w-xl">
                   The molasses and ethanol we produce here feed the Chemical Division's
-                  ESJ-to-Ethanol, sanitizer, and specialty chemical operations. The same carbon we
-                  pull from the air as cane — we displace from fuels, transport, and hospitals as
-                  renewable ethanol. A group-wide carbon balance sheet.
+                  ESJ-to-Ethanol, sanitizer, and specialty chemical operations. The same carbon
+                  pulled from the air as cane — we displace from fuels, transport, and hospitals as
+                  renewable ethanol.
                 </p>
               </div>
               <div className="lg:col-span-2 space-y-3.5">
@@ -268,13 +267,13 @@ export default function Sustainability() {
                   </p>
                   <ul className="space-y-2">
                     {[
-                      ["100%", "Renewable power across all sites"],
-                      ["–40%", "Scope 1 & 2 carbon intensity vs 2022"],
-                      ["5×", "Press-mud organic manure output"]
-                    ].map(([v, k]) => (
-                      <li key={k} className="flex items-center justify-between gap-4 pb-2 border-b border-white/10 last:border-0 last:pb-0">
-                        <p className="text-[13px] text-white/75">{k}</p>
-                        <p className="font-display text-lg font-semibold text-harvest-gold tabular-nums">{v}</p>
+                      ["All-sites renewable", "Renewable power priority across group operations"],
+                      ["Lower carbon", "Reduced Scope 1 & 2 carbon intensity"],
+                      ["More compost", "Expanded press-mud organic manure reach"]
+                    ].map(([k, v]) => (
+                      <li key={k} className="flex items-start justify-between gap-4 pb-2 border-b border-white/10 last:border-0 last:pb-0">
+                        <p className="text-[13px] font-semibold text-white/90">{k}</p>
+                        <p className="text-[12px] text-white/60 text-right leading-snug max-w-[60%]">{v}</p>
                       </li>
                     ))}
                   </ul>

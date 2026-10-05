@@ -15,7 +15,7 @@ const stages = [
   {
     key: "cane",
     label: "Sugarcane",
-    description: "1.2 lakh acres of registered cane area across 50,000+ farmer families.",
+    description: "Registered cane area across thousands of farmer families in our command area.",
     Icon: Sprout,
     tone: "from-cane-green/20 to-cane-green/5 text-cane-green-dark border-cane-green/15"
   },

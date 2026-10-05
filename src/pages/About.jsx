@@ -14,15 +14,14 @@ import AnimatedCounter from "../components/AnimatedCounter";
 import { timeline } from "../data/timeline";
 import { leadership, foundingStory } from "../data/leadership";
 
-const heroImage =
-  "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=vintage%20photograph%201960s%20indian%20cooperative%20sugar%20factory%20foundations%20brickwork%20community%20gathering%20sepia%20tone%20nostalgic%20heritage%20aesthetic&image_size=landscape_16_9";
+const heroImage = "/our story.png";
 
 export default function About() {
   return (
     <>
       <SEO
-        title="Our Story — 63 Years of Farmer Cooperation"
-        description="Founded 1960 by Late Hon. Shri. Shankar Rao Genuji Kolhe Saheb. The story of Maharashtra's most respected cooperative sugar factory — from a few hundred farmers to 50,000+ member families and 5,000 MT/day crushing capacity."
+        title="Our Story — Six Decades of Farmer Cooperation"
+        description="Founded 1960 by Late Hon. Shri. Shankar Rao Genuji Kolhe Saheb. Maharashtra's respected cooperative sugar factory — from a handful of village growers to a diversified group producing refined sugar, ethanol and sustainable by-products."
         keywords="shankar rao kolhe sahakari sakhar karkhana history, sugar cooperative maharashtra 1960, bipindada kolhe vivek kolhe sanjivani"
         path="/about"
       />
@@ -30,7 +29,7 @@ export default function About() {
       <PageHeader
         eyebrow="Our Story · Est. 1960"
         title="Six decades of growing together."
-        lead="From a small village mill to a diversified group leader — the cooperative's greatest asset has always been the same 50,000+ farmer families who own it."
+        lead="From a small village mill to a diversified group — our greatest asset remains the thousands of farmer families who own it."
         backgroundImage={heroImage}
       />
 
@@ -62,7 +61,7 @@ export default function About() {
 
               <div className="mt-6 grid grid-cols-3 gap-3">
                 <StatChip Icon={Calendar} label="Est." value="1960" />
-                <StatChip Icon={Users} label="Farmers" value="50K+" />
+                <StatChip Icon={Users} label="Farmers" value="Community" />
                 <StatChip Icon={Building2} label="Status" value="Co-op" />
               </div>
             </motion.div>
@@ -85,7 +84,7 @@ export default function About() {
                 {foundingStory.paragraphs.map((p, i) => (
                   <p
                     key={i}
-                    className="text-[15px] md:text-lg text-neutral-dark/78 leading-[1.85] md:leading-[1.9]"
+                    className="text-[15px] md:text-base text-neutral-dark/78 leading-[1.8]"
                   >
                     {p}
                   </p>
@@ -93,9 +92,9 @@ export default function About() {
               </div>
 
               <div className="pt-8 grid sm:grid-cols-3 gap-4 md:gap-6 border-t border-neutral-dark/5">
-                <AnimatedCounter value={63} suffix="+" label="Years of cooperation" description="Uninterrupted since 1960" />
-                <AnimatedCounter value={5000} suffix=" MT/day" label="Crushing capacity" description="Expanding to 6,000 MT/day" />
-                <AnimatedCounter value={12} suffix="" label="Cane Development" description="Programs & subsidies" />
+                <AnimatedCounter value={63} suffix="+" label="Years of cooperation" description="Since 1960" />
+                <AnimatedCounter value={null} label="Modern Mill" description="Next-gen boilers, crystallizers & automation" />
+                <AnimatedCounter value={null} label="Cane Dev Programs" description="Seeds, soil, drone, drip & finance support" />
               </div>
             </motion.div>
           </div>
@@ -113,8 +112,8 @@ export default function About() {
               From a shared dream to a <span className="text-cane-green-dark">shared legacy</span>.
             </h2>
             <p className="mt-5 text-[15px] md:text-base text-neutral-dark/70 leading-relaxed">
-              Every milestone below began as a conversation in a village chaupal. Every decision was
-              voted on by the farmers it would affect.
+              Every milestone began as a conversation in a village chaupal. Every decision voted
+              on by the farmers it affected.
             </p>
           </div>
 
@@ -135,8 +134,8 @@ export default function About() {
               </h2>
             </div>
             <p className="max-w-md text-sm md:text-[15px] text-neutral-dark/70 leading-relaxed">
-              Honoring the founding vision while investing in the technologies, markets, and
-              infrastructure that will carry the cooperative through the next 60 years.
+              Honoring the founding vision while investing in the technologies and infrastructure
+              for the next 60 years.
             </p>
           </div>
 
@@ -169,7 +168,7 @@ export default function About() {
                     <h3 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-neutral-dark leading-tight tracking-tight">
                       {l.name}
                     </h3>
-                    <p className="mt-5 text-[14px] md:text-[15px] text-neutral-dark/72 leading-[1.85]">
+                    <p className="mt-5 text-[14px] md:text-[15px] text-neutral-dark/72 leading-[1.8]">
                       {l.bio}
                     </p>
                     <div className="mt-auto pt-6 flex flex-wrap items-center justify-between gap-4">
@@ -205,12 +204,12 @@ export default function About() {
                   Part of Sanjivani Group of Industries
                 </p>
                 <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight">
-                  Two subsidiaries. One supply chain. One shared promise to the farmer.
+                  Two subsidiaries. One supply chain. One promise to the farmer.
                 </h2>
-                <p className="mt-5 text-sm md:text-lg text-white/80 leading-relaxed max-w-xl">
-                  The Agriculture Division grows and crushes the cane. The Chemical Division turns
-                  the by-products into ethanol, sanitizers, and specialty chemicals. Together, the
-                  group captures the full value chain — so more rupees return to the farm.
+                <p className="mt-5 text-sm md:text-base text-white/80 leading-relaxed max-w-xl">
+                  Agriculture Division grows and crushes the cane. Chemical Division turns
+                  by-products into ethanol, sanitizers, and specialty chemicals — capturing the
+                  full value chain so more rupees return to the farm.
                 </p>
               </div>
               <div className="md:col-span-2 md:pl-6">

@@ -67,26 +67,24 @@ export default function Footer() {
         <div className="grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 space-y-6">
             <Link to="/" className="inline-flex items-center gap-2.5 group">
-              <span className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden bg-white ring-1 ring-white/20 shrink-0">
-                <img
-                  src="/Sanjivani Group 2(1).png"
-                  alt="Sanjivani Group"
-                  className="w-full h-full object-contain"
-                />
+              <span className="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden bg-white/95 ring-1 ring-white/20 shrink-0">
+                <span className="font-display text-lg font-semibold text-cane-green-dark tracking-tight">
+                  S
+                </span>
               </span>
               <div className="leading-tight">
                 <p className="font-display text-lg font-semibold tracking-tight">
                   Sanjivani <span className="text-cane-green-light">Agriculture</span>
                 </p>
                 <p className="text-[11px] text-white/50 uppercase tracking-[0.14em] -mt-0.5">
-                  Subsidiary of Sanjivani Group
+                  Since · 1962
                 </p>
               </div>
             </Link>
 
             <p className="text-white/70 text-sm leading-relaxed max-w-md">
               Sahakar Maharshi Shankar Rao Kolhe Sahakari Sakhar Karkhana Ltd. —
-              a 63-year-old farmer-owned cooperative producing refined sugar,
+              a farmer-owned cooperative producing refined sugar,
               ethanol, and sustainable by-products. Rooted in cooperation,
               growing with innovation.
             </p>

@@ -9,19 +9,19 @@ export const stats = [
   },
   {
     id: "capacity",
-    value: 5000,
-    suffix: " MT/day",
+    value: null,
+    suffix: "",
     prefix: "",
-    label: "Crushing Capacity",
-    description: "Expanding to 6,000 MT/day"
+    label: "Modern Crushing Capacity",
+    description: "Next-gen boilers, crystallizers & automated handling"
   },
   {
     id: "farmers",
-    value: 50000,
-    suffix: "+",
+    value: null,
+    suffix: "",
     prefix: "",
     label: "Farmer Families",
-    description: "Member-owners of the cooperative"
+    description: "Member-owners across our registered command area"
   },
   {
     id: "ethanol",
@@ -37,8 +37,8 @@ export const groupEcosystem = {
   title: "Group Ecosystem — One Supply Chain",
   description: "Our sugarcane by-products feed directly into the Chemical Division's Ethanol and ESJ-to-Ethanol operations — a closed-loop model from farm to fuel.",
   flow: [
-    { step: 1, label: "Farm", icon: "Sprout", detail: "50,000+ farmer families, 1.2 lakh acres command area" },
-    { step: 2, label: "Sugar Factory", icon: "Factory", detail: "5,000 MT/day crushing → Sugar + Molasses + Bagasse + Press Mud" },
+    { step: 1, label: "Farm", icon: "Sprout", detail: "Registered cane growers across our command area villages" },
+    { step: 2, label: "Sugar Factory", icon: "Factory", detail: "Modern crushing producing Sugar + Molasses + Bagasse + Press Mud" },
     { step: 3, label: "Molasses / ESJ", icon: "Droplet", detail: "C-heavy molasses and end syrup routed as feedstock" },
     { step: 4, label: "Chemical Division", icon: "FlaskConical", detail: "Ethanol distillation + sanitizers + specialty chemicals" },
     { step: 5, label: "Fuel & Consumer", icon: "Zap", detail: "OMC ethanol blending, industrial solvents, hand sanitizers" }

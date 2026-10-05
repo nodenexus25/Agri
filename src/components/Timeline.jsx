@@ -26,13 +26,11 @@ export default function Timeline({ items }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className={`relative grid md:grid-cols-2 md:gap-12 gap-5 ${
-                isLeft ? "" : "md:[&>*:first-child]:order-2"
-              }`}
+              className="relative grid md:grid-cols-2 md:gap-10 lg:gap-14 gap-5"
             >
               <div
-                className={`pl-14 md:pl-0 ${
-                  isLeft ? "md:text-right md:pr-10" : "md:pl-10 md:text-left"
+                className={`pl-14 md:pl-0 md:pr-10 ${
+                  isLeft ? "md:text-right md:order-1" : "md:text-left md:order-3 md:pl-10"
                 }`}
               >
                 <motion.div
@@ -47,13 +45,13 @@ export default function Timeline({ items }) {
                   <p className="mt-1 text-[11px] md:text-xs font-semibold uppercase tracking-[0.2em] text-harvest-gold">
                     {item.label}
                   </p>
-                  <p className="mt-3 text-sm md:text-[15px] text-neutral-dark/75 leading-relaxed md:max-w-md md:inline-block">
+                  <p className="mt-3 text-sm md:text-[15px] text-neutral-dark/75 leading-relaxed md:max-w-md md:inline-block text-left md:text-inherit">
                     {item.description}
                   </p>
                 </motion.div>
               </div>
 
-              <div className="absolute left-5 md:left-1/2 md:-translate-x-1/2 top-1 md:top-3 flex items-center justify-center">
+              <div className="absolute left-5 md:left-1/2 md:-translate-x-1/2 top-1 md:top-3 flex items-center justify-center z-10">
                 <motion.span
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -65,7 +63,34 @@ export default function Timeline({ items }) {
                 </motion.span>
               </div>
 
-              <div className="hidden md:block" />
+              <div
+                className={`pl-14 md:pl-0 md:pr-10 ${
+                  isLeft
+                    ? "md:text-left md:order-2 md:pl-10 md:pr-0"
+                    : "md:text-right md:order-1 md:pl-0 md:pr-10"
+                }`}
+              >
+                <motion.div
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  initial={{ opacity: 0, x: isLeft ? 20 : -20 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  {item.image && (
+                    <figure className="relative overflow-hidden rounded-[24px] md:rounded-[28px] border border-neutral-dark/8 shadow-[0_18px_40px_-24px_rgba(26,26,26,0.35)] aspect-[8/3] md:aspect-[16/5] bg-neutral-light">
+                      <img
+                        src={item.image}
+                        alt={`${item.year} — ${item.label}`}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = "none";
+                          e.currentTarget.parentElement.style.background = "#f5f1e8";
+                        }}
+                      />
+                    </figure>
+                  )}
+                </motion.div>
+              </div>
             </motion.li>
           );
         })}

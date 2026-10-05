@@ -14,8 +14,7 @@ import PageHeader from "../components/PageHeader";
 import ByProductCard from "../components/ByProductCard";
 import { mainProduct, byProducts } from "../data/products";
 
-const heroImage =
-  "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=premium%20refined%20white%20sugar%20crystals%20flowing%20in%20industrial%20production%20line%20factory%20conveyor%20belt%20hygienic%20stainless%20steel%20equipment%20bright%20clean%20industrial%20photography&image_size=landscape_16_9";
+const heroImage = "/products.png";
 
 export default function Products() {
   return (
@@ -30,7 +29,7 @@ export default function Products() {
       <PageHeader
         eyebrow="Products & By-products"
         title="From the field, refined to the world's standards."
-        lead="One ton of sugarcane enters our factory. Five value streams leave — food-grade sugar, ethanol, bio-power, paper-grade bagasse, and nutrient-rich organic manure."
+        lead="One ton of sugarcane enters. Five value streams leave — food-grade sugar, ethanol, bio-power, paper-grade bagasse, and organic manure."
         backgroundImage={heroImage}
         tone="harvest"
       />
@@ -53,7 +52,7 @@ export default function Products() {
               <div className="absolute top-5 left-5 flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur border border-white/50 text-[11px] font-semibold uppercase tracking-[0.16em] text-cane-green-dark">
                   <Award size={11} />
-                  Food Grade · FSSAI Certified
+                  Food Grade · FSSAI
                 </span>
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-neutral-dark/85 backdrop-blur text-[11px] font-semibold uppercase tracking-[0.16em] text-white">
                   ICUMSA-45
@@ -170,7 +169,7 @@ export default function Products() {
                     {ind}
                   </p>
                   <p className="mt-1 text-[12px] text-neutral-mid leading-relaxed">
-                    Dedicated grade & packaging available for this industry.
+                    Dedicated grade & packaging.
                   </p>
                 </div>
               </motion.div>
@@ -188,12 +187,12 @@ export default function Products() {
                 By-products
               </p>
               <h2 className="font-display text-4xl md:text-5xl font-semibold text-neutral-dark tracking-tight leading-[1.08] max-w-2xl">
-                Everything the factory produces, <span className="text-harvest-gold">nothing it discards</span>.
+                Everything produced, <span className="text-harvest-gold">nothing discarded</span>.
               </h2>
             </div>
             <p className="max-w-md text-sm md:text-[15px] text-neutral-dark/70 leading-relaxed">
-              Four by-products — each an industrial input in its own right, sold domestically and
-              exported. All four also power our own circular economy.
+              Four by-products — each an industrial input, sold domestically and exported. All four
+              power our own circular economy.
             </p>
           </div>
 
@@ -219,18 +218,18 @@ export default function Products() {
                   Group Synergy
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight max-w-3xl">
-                  See how our <span className="text-harvest-gold">ethanol</span> powers our Chemical Division.
+                  See how our <span className="text-harvest-gold">ethanol</span> powers the Chemical Division.
                 </h2>
-                <p className="mt-5 text-sm md:text-lg text-white/78 leading-relaxed max-w-2xl">
-                  C-heavy molasses and end syrup from our sugar line flow directly by pipeline to
-                  the Sanjivani Chemical Division — where they become E20 ethanol, industrial
-                  solvents, and hand sanitizers. A single source. A closed loop.
+                <p className="mt-5 text-sm md:text-base text-white/78 leading-relaxed max-w-xl">
+                  C-heavy molasses and end syrup flow directly by pipeline to Sanjivani Chemical
+                  Division — becoming E20 ethanol, solvents, and hand sanitizers. A single source.
+                  A closed loop.
                 </p>
                 <div className="mt-8 grid sm:grid-cols-3 gap-3 max-w-xl">
                   {[
                     { k: "Molasses routed", v: "~400 MT/day" },
                     { k: "Ethanol output", v: "~90 KL/day" },
-                    { k: "Pipeline length", v: "Direct feed" }
+                    { k: "Pipeline", v: "Direct feed" }
                   ].map((s) => (
                     <div key={s.k} className="rounded-2xl bg-white/[0.06] border border-white/10 p-4">
                       <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50">

@@ -18,8 +18,7 @@ import PageHeader from "../components/PageHeader";
 import InitiativeCard from "../components/InitiativeCard";
 import { caneInitiatives } from "../data/caneDevelopment";
 
-const heroImage =
-  "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=wide%20shot%20of%20group%20of%20indian%20farmers%20with%20agriculture%20officer%20in%20lush%20green%20sugarcane%20field%20extension%20worker%20showing%20digital%20tablet%20warm%20afternoon%20light%20documentary%20style&image_size=landscape_16_9";
+const heroImage = "/Farmer Support.png";
 
 const categoryList = ["All", ...Array.from(new Set(caneInitiatives.map((i) => i.category)))];
 
@@ -27,22 +26,22 @@ const quickPillars = [
   {
     Icon: Sprout,
     title: "Seeds & Nursery",
-    items: ["Cane Seed Development", "Coco Peat & Poly Trays", "Green Manuring Support"]
+    items: ["Cane Seed Development", "Coco Peat & Poly Trays", "Green Manuring"]
   },
   {
     Icon: FlaskConical,
     title: "Soil & Advisory",
-    items: ["Soil & Water Analysis", "Bio-Compost & Micronutrients", "Sanjivani Organic Manure"]
+    items: ["Soil & Water Analysis", "Bio-Compost & Micronutrients", "Organic Manure"]
   },
   {
     Icon: Droplets,
     title: "Water & Irrigation",
-    items: ["Drip Irrigation Financing", "Irrigation & Farm Ponds"]
+    items: ["Drip Irrigation Finance", "Farm Ponds Support"]
   },
   {
     Icon: Plane,
     title: "Technology & Finance",
-    items: ["Drone Spraying Services", "Pre-Tillage Assistance", "Credit Facility for Crop Protection", "Basal Dose Fertilizers"]
+    items: ["Drone Spraying", "Pre-Tillage Assistance", "Credit Facility", "Basal Dose Fertilizers"]
   }
 ];
 
@@ -56,7 +55,7 @@ export default function CaneDevelopment() {
     <>
       <SEO
         title="Cane Development & Farmer Support Programs"
-        description="12 structured programs for our 50,000+ farmer members — subsidized seeds, soil testing, drip irrigation finance, drone spraying, credit facility, and Sanjivani Organic Manure."
+        description="Structured farmer support programs — subsidized seeds, soil testing, drip irrigation finance, drone spraying, credit facility, and Sanjivani Organic Manure for all cooperative members."
         keywords="farmer support sugarcane maharashtra, subsidized drip irrigation, drone spraying sugarcane, soil testing facility maharashtra, organic manure press mud"
         path="/cane-development"
       />
@@ -64,7 +63,7 @@ export default function CaneDevelopment() {
       <PageHeader
         eyebrow="Cane Development · Farmer Support"
         title="Farmers are the foundation of our growth."
-        lead="Twelve programs — from seed to harvest to payment — so every member family gets the inputs, advice, and credit needed to grow more, with less."
+        lead="Twelve programs — from seed to harvest to payment — every member family gets inputs, advice, and credit to grow more, with less."
         backgroundImage={heroImage}
         tone="cane"
       />
@@ -217,12 +216,11 @@ export default function CaneDevelopment() {
                   Already a farmer member?
                 </div>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
-                  Are you a farmer? Get in touch with our extension team.
+                  Get in touch with our extension team.
                 </h2>
-                <p className="mt-5 text-sm md:text-lg text-neutral-dark/80 leading-relaxed max-w-xl">
-                  Tell us your village, taluka, and what you need — seed, soil advice, drone
-                  spraying, or drip financing. Our Cane Development Officer will call you within
-                  48 hours and schedule a field visit if needed.
+                <p className="mt-5 text-sm md:text-base text-neutral-dark/80 leading-relaxed max-w-lg">
+                  Tell us your village and what you need — seeds, soil advice, drone spraying, or
+                  drip financing. Our Cane Officer will call within 48 hours.
                 </p>
                 <div className="mt-8 grid sm:grid-cols-2 gap-3 max-w-md">
                   <a
@@ -253,8 +251,8 @@ export default function CaneDevelopment() {
                     { k: "Chief Cane Officer", v: "Shri. Rajendra Patil" },
                     { k: "Helpdesk Phone", v: "+91 7266 202 450" },
                     { k: "Email", v: "farmerhelpdesk@sanjivani-agri.coop" },
-                    { k: "Office Hours", v: "Mon–Sat · 9:00 AM – 6:00 PM IST" },
-                    { k: "Language Support", v: "English · Marathi · Hindi" }
+                    { k: "Office Hours", v: "Mon–Sat · 9 AM – 6 PM IST" },
+                    { k: "Languages", v: "English · Marathi · Hindi" }
                   ].map((it) => (
                     <div
                       key={it.k}

@@ -14,8 +14,7 @@ import PageHeader from "../components/PageHeader";
 import DualContactForm from "../components/DualContactForm";
 import { contactInfo } from "../data/siteData";
 
-const heroImage =
-  "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=modern%20sugar%20factory%20admin%20office%20reception%20marble%20floors%20cooperative%20logo%20wood%20panel%20staff%20welcoming%20farmers%20bright%20professional%20interior&image_size=landscape_16_9";
+const heroImage = "/contact.png";
 
 export default function Contact() {
   return (
@@ -30,7 +29,7 @@ export default function Contact() {
       <PageHeader
         eyebrow="Contact & Farmer Helpdesk"
         title="One factory. Two teams. Every question answered."
-        lead="Choose the track that fits — our sales & partnership team, or our Cane Development helpdesk for farmers. Average response time under 48 hours."
+        lead="Choose the track that fits — sales & partnership, or our Cane Development helpdesk. Average response under 48 hours."
         backgroundImage={heroImage}
         tone="neutral"
       />
@@ -81,9 +80,9 @@ export default function Contact() {
                 eyebrow="Working Hours"
                 title="Seasonal & year-round operations"
                 rows={[
-                  ["Crushing Season", "Nov – Feb · 24×7 factory"],
-                  ["Cane Dev Office", "Mon – Sat · 9:00 AM – 6:00 PM"],
-                  ["Emergency Line", contactInfo.factory.phone[1]]
+                  ["Crushing Season", "Nov – Feb · 24×7"],
+                  ["Cane Dev Office", "Mon – Sat · 9 AM – 6 PM"],
+                  ["Emergency", contactInfo.factory.phone[1]]
                 ]}
               />
             </div>
@@ -105,12 +104,12 @@ export default function Contact() {
                   Walk-ins Welcome
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight max-w-3xl">
-                  Prefer a visit? Our doors are open to every farmer-member.
+                  Prefer a visit? Doors open to every farmer-member.
                 </h2>
-                <p className="mt-5 text-sm md:text-lg text-white/80 leading-relaxed max-w-2xl">
+                <p className="mt-5 text-sm md:text-base text-white/80 leading-relaxed max-w-xl">
                   Head office is on factory premises — follow the 'Sugar Receipt Yard' gate to the
-                  admin building. Cane Development desk is on the ground floor, no appointment needed
-                  for walk-in farmer enquiries. Guest rooms available for outstation farmer delegates.
+                  admin building. Cane Development desk on ground floor, no appointment needed.
+                  Guest rooms available for outstation delegates.
                 </p>
               </div>
               <div className="lg:col-span-2 md:pl-6 space-y-3.5">
@@ -120,9 +119,9 @@ export default function Contact() {
                   </p>
                   <ul className="space-y-2.5">
                     {[
-                      ["Airport", "Nagpur (155 km) · Aurangabad (170 km)"],
-                      ["Railhead", "Jalamb Jn · 18 km · 25 min"],
-                      ["Highway", "NH-53 (Nagpur-Surat) · 12 km"]
+                      ["Airport", "Nagpur 155km · Aurangabad 170km"],
+                      ["Railhead", "Jalamb Jn · 18km · 25min"],
+                      ["Highway", "NH-53 (Nagpur-Surat) · 12km"]
                     ].map(([k, v]) => (
                       <li
                         key={k}
@@ -149,7 +148,7 @@ export default function Contact() {
                     className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 border border-white/15 hover:bg-white/15 text-white text-sm font-semibold transition-colors"
                   >
                     <MapPin size={14} />
-                    See Farmer Programs
+                    Farmer Programs
                     <ArrowRight size={12} />
                   </Link>
                 </div>

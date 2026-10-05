@@ -14,8 +14,7 @@ import {
 import SEO from "../components/SEO";
 import PageHeader from "../components/PageHeader";
 
-const heroImage =
-  "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=warm%20indian%20kitchen%20table%20with%20glass%20jar%20of%20premium%20white%20sugar%20fresh%20jaggery%20wooden%20spoon%20rustic%20cloth%20soft%20morning%20window%20light%20comforting%20homely%20editorial%20photography&image_size=landscape_16_9";
+const heroImage = "/amrut sanjivani.png";
 
 const productShowcase = [
   {
@@ -27,16 +26,16 @@ const productShowcase = [
   },
   {
     name: "Amrut Sanjivani Natural Brown Sugar",
-    tagline: "Unrefined warmth for your chai and laddoos.",
+    tagline: "Unrefined warmth for chai and laddoos.",
     size: "500g · 1kg",
-    use: "Masala chai, traditional sweets, porridge, jaggery alternatives",
+    use: "Masala chai, traditional sweets, porridge",
     img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=premium%20natural%20brown%20sugar%20in%20ceramic%20bowl%20with%20sugarcane%20stalks%20cinnamon%20cardamom%20rustic%20indian%20kitchen%20morning%20light%20warm%20tones%20food%20photography&image_size=portrait_4_3"
   },
   {
     name: "Sanjivani Organic Manure",
     tagline: "From our press mud, back to your fields.",
     size: "25kg · 50kg sacks",
-    use: "Sugarcane, horticulture, vegetables, orchards, lawns",
+    use: "Sugarcane, horticulture, vegetables, orchards",
     img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=sanjivani%20organic%20manure%20sacks%20stacked%20at%20factory%20yard%20rich%20compost%20soil%20in%20hand%20green%20sugarcane%20field%20background%20agriculture%20product%20photography&image_size=portrait_4_3"
   }
 ];
@@ -54,7 +53,7 @@ export default function AmrutSanjivani() {
       <PageHeader
         eyebrow="Amrut Sanjivani Sugarcane Pvt. Ltd."
         title="Farm to Home. Pure by design."
-        lead="Our consumer brand built on the same cooperative promise — from farmer-owned fields to family-owned kitchens. Nothing added, nothing hidden, only refined sweetness."
+        lead="Our consumer brand built on the cooperative promise — from farmer-owned fields to family-owned kitchens. Nothing added, nothing hidden."
         backgroundImage={heroImage}
         tone="harvest"
       />
@@ -75,32 +74,31 @@ export default function AmrutSanjivani() {
                   Our Consumer Promise
                 </p>
                 <h2 className="font-display text-4xl md:text-5xl font-semibold text-neutral-dark tracking-tight leading-[1.05]">
-                  One of the most reliable suppliers of agri-based products in the region.
+                  One of the most reliable agri-product suppliers in the region.
                 </h2>
                 <p className="text-[15px] md:text-base text-neutral-dark/75 leading-relaxed">
-                  Amrut Sanjivani Sugarcane Pvt. Ltd. is the dedicated consumer-facing arm of our
-                  cooperative. We take the same factory-grade refined sugar, organic manure, and
-                  by-products our industrial clients trust — and package them for every Indian
-                  kitchen, grocer, and small farmer.
+                  Amrut Sanjivani Sugarcane Pvt. Ltd. is the consumer-facing arm of our cooperative.
+                  We take the same factory-grade refined sugar, organic manure, and by-products our
+                  industrial clients trust — and package them for every Indian kitchen, grocer, and
+                  small farmer.
                 </p>
                 <p className="text-[15px] md:text-base text-neutral-dark/75 leading-relaxed">
-                  The difference? Every bag carries the guarantee of the cooperative behind it —
-                  full traceability, consistent quality, and the quiet certainty that every
-                  purchase supports a farmer in our network.
+                  Every bag carries the cooperative guarantee — full traceability, consistent quality,
+                  and the certainty that every purchase supports a farmer in our network.
                 </p>
 
                 <div className="pt-4 grid grid-cols-2 gap-3">
                   {[
-                    { k: "Packaged SKUs", v: "12+" },
-                    { k: "Districts served", v: "28" },
-                    { k: "Retail partners", v: "4,200+" },
-                    { k: "Households reached", v: "1.8M+" }
+                    { k: "Product Range", v: "Wide" },
+                    { k: "Reach", v: "Statewide" },
+                    { k: "Retail Partners", v: "Many" },
+                    { k: "Consumer Base", v: "Lakhs" }
                   ].map((s) => (
                     <div
                       key={s.k}
                       className="rounded-2xl bg-neutral-light border border-neutral-dark/6 p-4"
                     >
-                      <p className="font-display text-xl md:text-2xl font-semibold text-neutral-dark tabular-nums">
+                      <p className="font-display text-xl md:text-2xl font-semibold text-neutral-dark">
                         {s.v}
                       </p>
                       <p className="mt-1 text-[11px] uppercase tracking-[0.14em] text-neutral-mid">
@@ -132,7 +130,7 @@ export default function AmrutSanjivani() {
                     Technology & Modern Equipment
                   </p>
                   <p className="font-display text-2xl md:text-3xl font-semibold tracking-tight leading-tight">
-                    ₹120 Cr invested in automated packaging, quality labs, and food-grade warehousing.
+                    Major investment in automated packaging, quality labs, and food-grade warehousing.
                   </p>
                 </div>
               </div>
@@ -236,53 +234,52 @@ export default function AmrutSanjivani() {
             />
             <div className="relative grid lg:grid-cols-5 gap-10 items-center">
               <div className="lg:col-span-3">
-                <p className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-[11px] font-semibold uppercase tracking-[0.2em] mb-6">
-                  Become a Partner
+              <p className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-[11px] font-semibold uppercase tracking-[0.2em] mb-6">
+                Become a Partner
+              </p>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
+                Stock Amrut Sanjivani. Share the cooperative's promise.
+              </h2>
+              <p className="mt-5 text-sm md:text-base text-white/80 leading-relaxed max-w-xl">
+                Distributors, retail chains, kirana partners, and agri-input suppliers — join our
+                network. Attractive margins, 12-month consistent supply, dedicated merchandising support.
+              </p>
+            </div>
+            <div className="lg:col-span-2 md:pl-6 space-y-3.5">
+              <div className="rounded-[24px] bg-white/[0.07] border border-white/10 backdrop-blur p-5">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/55 mb-2">
+                  What you get
                 </p>
-                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
-                  Stock Amrut Sanjivani. Share the cooperative's promise.
-                </h2>
-                <p className="mt-5 text-sm md:text-lg text-white/80 leading-relaxed max-w-xl">
-                  Distributors, retail chains, kirana partners, and agri-input suppliers — join our
-                  growing network. Attractive margins, consistent supply 12 months a year, and
-                  dedicated merchandising support.
-                </p>
+                <ul className="space-y-2">
+                  {[
+                    "Competitive distributor & retailer margins",
+                    "Monthly promotions & festival schemes",
+                    "POP material & shelf branding",
+                    "21-day credit (on approval)"
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-2.5 text-sm text-white/85">
+                      <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-harvest-gold" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <div className="lg:col-span-2 md:pl-6 space-y-3.5">
-                <div className="rounded-[24px] bg-white/[0.07] border border-white/10 backdrop-blur p-5">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/55 mb-2">
-                    What you get
-                  </p>
-                  <ul className="space-y-2">
-                    {[
-                      "Competitive distributor & retailer margins",
-                      "Monthly promotions & festival schemes",
-                      "POP material & shelf branding",
-                      "Minimum 21-day credit (on approval)"
-                    ].map((b) => (
-                      <li key={b} className="flex items-start gap-2.5 text-sm text-white/85">
-                        <CheckCircle2 size={14} className="mt-0.5 shrink-0 text-harvest-gold" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <Link
-                    to="/contact"
-                    className="group inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-harvest-gold hover:bg-harvest-gold-light text-neutral-dark text-sm font-semibold transition-colors"
-                  >
-                    <Package size={14} />
-                    Distributor Enquiry
-                  </Link>
-                  <a
-                    href="mailto:amrut@sanjivani-agri.coop"
-                    className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 border border-white/15 hover:bg-white/15 text-white text-sm font-semibold transition-colors"
-                  >
-                    Email Brand Team
-                  </a>
-                </div>
+              <div className="grid grid-cols-2 gap-3">
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-harvest-gold hover:bg-harvest-gold-light text-neutral-dark text-sm font-semibold transition-colors"
+                >
+                  <Package size={14} />
+                  Distributor Enquiry
+                </Link>
+                <a
+                  href="mailto:amrut@sanjivani-agri.coop"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 border border-white/15 hover:bg-white/15 text-white text-sm font-semibold transition-colors"
+                >
+                  Email Brand Team
+                </a>
               </div>
+            </div>
             </div>
           </div>
         </div>

@@ -10,7 +10,8 @@ export const mainProduct = {
     "Packaging": "50kg HDPE / 1MT Jumbo / Bulk"
   },
   industries: ["Food & Beverage", "Bakery & Confectionery", "Pharmaceutical", "Export Markets", "Retail Consumer"],
-  icon: "Candy"
+  icon: "Candy",
+  image: "/prod/1.png"
 };
 
 export const byProducts = [
@@ -20,11 +21,7 @@ export const byProducts = [
     description: "Rich in fermentable sugars — our C-grade molasses feeds the ethanol ecosystem and Sanjivani Chemical Division.",
     icon: "Droplet",
     industries: ["Ethanol Distilleries", "Animal Feed", "Distilleries & Rum", "Yeast Production"],
-    specs: {
-      "Brix": "80° — 85°",
-      "Sugar Content": "45% — 55%",
-      "Color": "Dark Brown Viscous"
-    }
+    image: "/prod/2.png"
   },
   {
     name: "Bagasse",
@@ -32,11 +29,7 @@ export const byProducts = [
     description: "Fibrous residue after crushing powers our boilers season-long — steam and electricity for the factory, surplus for nearby industries.",
     icon: "Wind",
     industries: ["Power Cogeneration", "Paper & Pulp", "Particle Board", "Biomass Energy"],
-    specs: {
-      "Moisture": "48% — 52% (as received)",
-      "Calorific Value": "Renewable biomass grade",
-      "Fiber Length": "1.0mm — 2.5mm"
-    }
+    image: "/prod/3.png"
   },
   {
     name: "Press Mud",
@@ -44,11 +37,7 @@ export const byProducts = [
     description: "Filter cake from juice clarification — composted into branded Sanjivani Organic Manure, closing the factory-to-farm loop.",
     icon: "Layers",
     industries: ["Organic Fertilizer", "Soil Amendment", "Compost Manufacturing", "Horticulture"],
-    specs: {
-      "Organic Carbon": "18% — 25%",
-      "NPK (combined)": "2.5% — 4.0%",
-      "pH": "6.5 — 7.5"
-    }
+    image: "/prod/4.png"
   },
   {
     name: "Ethanol",
@@ -56,10 +45,6 @@ export const byProducts = [
     description: "Produced from C-heavy molasses and direct juice — first cooperative in the region commissioned for Juice-to-Ethanol.",
     icon: "Flame",
     industries: ["Fuel Blending (OMCs)", "Chemical Division Sanitizers", "Industrial Solvents", "Distillery"],
-    specs: {
-      "Purity": "99.9% v/v (Anhydrous)",
-      "Moisture": "< 0.1%",
-      "Denatured": "As per OMC specification"
-    }
+    image: "/prod/5.png"
   }
 ];

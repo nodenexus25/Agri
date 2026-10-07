@@ -8,22 +8,15 @@ import {
   MessageSquare,
   Home,
   MapPin,
-  Ruler,
-  HeadphonesIcon,
+  Phone,
   Send,
   CheckCircle2,
-  Leaf
+  Leaf,
+  Mail
 } from "lucide-react";
-import { caneInitiatives, supportTypes } from "../data/caneDevelopment";
-
-const tabs = [
-  { key: "general", label: "General Enquiry", Icon: MessageSquare, hint: "Buyers, partners, media" },
-  { key: "farmer", label: "Farmer Support Request", Icon: HeadphonesIcon, hint: "Seeds, finance, advisory, drones" }
-];
 
 export default function DualContactForm() {
-  const [tab, setTab] = useState("general");
-  const [submitted, setSubmitted] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
 
   const general = useForm({
     defaultValues: {
@@ -36,27 +29,9 @@ export default function DualContactForm() {
     }
   });
 
-  const farmer = useForm({
-    defaultValues: {
-      name: "",
-      village: "",
-      taluka: "",
-      district: "",
-      phone: "",
-      landArea: "",
-      supportType: "",
-      message: ""
-    }
-  });
-
   const onSubmitGeneral = (data) => {
     console.log("General Enquiry:", data);
-    setSubmitted("general");
-  };
-
-  const onSubmitFarmer = (data) => {
-    console.log("Farmer Support Request:", data);
-    setSubmitted("farmer");
+    setSubmitted(true);
   };
 
   return (
@@ -79,19 +54,20 @@ export default function DualContactForm() {
               Let's build the next harvest together.
             </h3>
             <p className="mt-3 text-sm md:text-[15px] text-white/80 leading-relaxed">
-              Whether you're sourcing sugar or by-products, or a farmer looking for seeds, soil
-              advice, or drone spraying — our team responds within 48 hours.
+              Whether you're sourcing sugar or by-products, partnering with us, or
+              reaching out about membership — our cooperative team responds within
+              two working days.
             </p>
 
             <div className="mt-8 space-y-4">
               {[
-                { k: "Farmer Helpdesk", v: "+91 7266 202 450" },
-                { k: "Sales & Exports", v: "+91 7266 202 400" },
-                { k: "Email", v: "cane.dev@sanjivani-agri.coop" }
+                { k: "Factory Reception", v: "+91 7266 202 400", Ico: Phone },
+                { k: "Sales & Exports", v: "+91 7266 202 401", Ico: Phone },
+                { k: "General Email", v: "info@sanjivani-agri.coop", Ico: Mail }
               ].map((it) => (
                 <div key={it.k} className="flex items-start gap-3">
                   <span className="w-8 h-8 shrink-0 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center mt-0.5">
-                    <MapPin size={14} className="opacity-80" />
+                    <it.Ico size={14} className="opacity-80" />
                   </span>
                   <div>
                     <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/55">
@@ -105,43 +81,26 @@ export default function DualContactForm() {
 
             <div className="mt-10 pt-8 border-t border-white/10">
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-harvest-gold mb-3">
-                Cane Development Season
+                Factory Operations
               </p>
               <p className="text-sm text-white/80 leading-relaxed">
-                Crushing season runs November–February. Pre-season planting and advisory camps are
-                organized across every taluka in our command area from August onwards.
+                Crushing season runs November–February. Office reception open
+                year-round, Mon–Sat, 9 AM – 6 PM IST. Guest rooms available for
+                outstation delegates.
               </p>
             </div>
           </div>
         </aside>
 
         <div className="md:col-span-3 p-7 md:p-10 lg:p-12">
-          <div className="flex flex-wrap gap-2 mb-8 p-1.5 rounded-2xl bg-neutral-light border border-neutral-dark/5">
-            {tabs.map((t) => {
-              const active = tab === t.key;
-              return (
-                <button
-                  key={t.key}
-                  type="button"
-                  onClick={() => setTab(t.key)}
-                  className={`relative flex-1 min-w-[180px] flex items-center gap-2.5 px-4 md:px-5 py-3 rounded-xl text-sm font-semibold transition-colors ${
-                    active ? "text-neutral-dark" : "text-neutral-mid hover:text-neutral-dark/80"
-                  }`}
-                >
-                  {active && (
-                    <motion.span
-                      layoutId="formtab"
-                      className="absolute inset-0 rounded-xl bg-white shadow-sm border border-neutral-dark/6"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative flex items-center gap-2">
-                    <t.Icon size={15} />
-                    <span>{t.label}</span>
-                  </span>
-                </button>
-              );
-            })}
+          <div className="mb-8">
+            <p className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-cane-green-dark mb-3">
+              <MessageSquare size={12} />
+              Send us a message
+            </p>
+            <h4 className="font-display text-2xl md:text-3xl font-semibold text-neutral-dark tracking-tight leading-tight">
+              Tell us what you need. Right desk, first response.
+            </h4>
           </div>
 
           <AnimatePresence mode="wait">
@@ -160,22 +119,20 @@ export default function DualContactForm() {
                   Thank you. Message received.
                 </h4>
                 <p className="mt-3 text-sm md:text-[15px] text-neutral-dark/70 leading-relaxed">
-                  {submitted === "farmer"
-                    ? "A member of the Cane Development extension team will call you within 48 hours to schedule a visit or consultation."
-                    : "Our sales or partnership team will respond with full specifications and pricing within two working days."}
+                  Our sales, partnership, or member-services team will respond
+                  with the information you need within two working days.
                 </p>
                 <button
                   onClick={() => {
-                    setSubmitted(null);
+                    setSubmitted(false);
                     general.reset();
-                    farmer.reset();
                   }}
                   className="mt-6 inline-flex items-center px-5 py-2.5 rounded-full border border-neutral-dark/10 text-sm font-medium text-neutral-dark hover:bg-neutral-dark hover:text-white transition-colors"
                 >
                   Send another message
                 </button>
               </motion.div>
-            ) : tab === "general" ? (
+            ) : (
               <motion.form
                 key="general"
                 onSubmit={general.handleSubmit(onSubmitGeneral)}
@@ -236,7 +193,8 @@ export default function DualContactForm() {
                       <option>Press Mud / Organic Manure</option>
                       <option>Ethanol — Fuel or Industrial</option>
                       <option>Partnership & Export</option>
-                      <option>Other</option>
+                      <option>Membership & Farmer Services</option>
+                      <option>Media & Other</option>
                     </select>
                   </div>
                 </div>
@@ -256,114 +214,6 @@ export default function DualContactForm() {
                     className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-cane-green-dark hover:bg-cane-green text-white text-sm font-semibold transition-colors shadow-[0_10px_25px_-10px_rgba(46,125,50,0.5)]"
                   >
                     Send Enquiry
-                    <Send size={14} />
-                  </button>
-                </div>
-              </motion.form>
-            ) : (
-              <motion.form
-                key="farmer"
-                onSubmit={farmer.handleSubmit(onSubmitFarmer)}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.35 }}
-                className="space-y-4.5"
-              >
-                <div className="grid sm:grid-cols-2 gap-4.5">
-                  <Field
-                    label="Farmer Name"
-                    register={farmer.register("name", { required: true })}
-                    Icon={User}
-                    placeholder="Full name"
-                    error={farmer.formState.errors.name}
-                  />
-                  <Field
-                    label="Village"
-                    register={farmer.register("village", { required: true })}
-                    Icon={MapPin}
-                    placeholder="Village name"
-                    error={farmer.formState.errors.village}
-                  />
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4.5">
-                  <Field
-                    label="Taluka"
-                    register={farmer.register("taluka")}
-                    Icon={MapPin}
-                    placeholder="e.g. Sindkhed Raja"
-                  />
-                  <Field
-                    label="District"
-                    register={farmer.register("district")}
-                    Icon={MapPin}
-                    placeholder="e.g. Buldhana"
-                  />
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4.5">
-                  <Field
-                    label="Contact Number"
-                    register={farmer.register("phone", { required: true })}
-                    Icon={Home}
-                    placeholder="+91 XXXXX XXXXX"
-                    error={farmer.formState.errors.phone}
-                  />
-                  <Field
-                    label="Land Area (Acres)"
-                    register={farmer.register("landArea")}
-                    Icon={Ruler}
-                    placeholder="Total cane acreage"
-                    type="number"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold uppercase tracking-[0.14em] text-neutral-mid mb-2">
-                    Support Required
-                  </label>
-                  <div className="relative">
-                    <Leaf size={15} className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-mid" />
-                    <select
-                      {...farmer.register("supportType", { required: true })}
-                      className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-neutral-light border border-neutral-dark/8 text-sm focus:outline-none focus:border-cane-green focus:bg-white transition-colors appearance-none"
-                    >
-                      <option value="">Choose the support you need…</option>
-                      {supportTypes.map((s) => (
-                        <option key={s.value} value={s.value}>
-                          {s.label}
-                        </option>
-                      ))}
-                      <option value="other">Other — describe in message</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="rounded-2xl bg-cane-green/[0.06] border border-cane-green/10 p-4">
-                  <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-cane-green-dark mb-2">
-                    Quick Reference — All 12 Initiatives
-                  </p>
-                  <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-[12px] text-neutral-dark/75">
-                    {caneInitiatives.slice(0, 8).map((c) => (
-                      <li key={c.id} className="flex items-center gap-1.5">
-                        <span className="w-1 h-1 rounded-full bg-cane-green-dark/60" />
-                        {c.title}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <Textarea
-                  label="Additional Details"
-                  register={farmer.register("message")}
-                  rows={4}
-                  placeholder="Tell us about your crop cycle, any specific issues, or best time for our extension team to visit…"
-                />
-                <div className="flex items-center justify-between pt-2">
-                  <p className="text-xs text-neutral-mid">
-                    Extension team visits are free for all member farmers.
-                  </p>
-                  <button
-                    type="submit"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-cane-green-dark hover:bg-cane-green text-white text-sm font-semibold transition-colors shadow-[0_10px_25px_-10px_rgba(46,125,50,0.5)]"
-                  >
-                    Submit Support Request
                     <Send size={14} />
                   </button>
                 </div>

@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import CaneDevelopment from "./pages/CaneDevelopment";
 import Products from "./pages/Products";
 import AmrutSanjivani from "./pages/AmrutSanjivani";
 import Sustainability from "./pages/Sustainability";
@@ -57,14 +56,6 @@ export default function App() {
               element={
                 <PageWrapper>
                   <About />
-                </PageWrapper>
-              }
-            />
-            <Route
-              path="/cane-development"
-              element={
-                <PageWrapper>
-                  <CaneDevelopment />
                 </PageWrapper>
               }
             />

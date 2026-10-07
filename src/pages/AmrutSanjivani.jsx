@@ -22,21 +22,21 @@ const productShowcase = [
     tagline: "Pure. Sparkling. Everyday sweetness.",
     size: "1kg · 5kg · 25kg",
     use: "Tea, coffee, sweets, baking, daily home use",
-    img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=premium%20consumer%20pack%201kg%20sugar%20bag%20amrut%20sanjivani%20brand%20marigold%20yellow%20green%20packaging%20elegant%20indian%20household%20kitchen%20countertop%20lifestyle%20product%20photography&image_size=portrait_4_3"
+    img: "/amrut/1.png"
   },
   {
     name: "Amrut Sanjivani Natural Brown Sugar",
     tagline: "Unrefined warmth for chai and laddoos.",
     size: "500g · 1kg",
     use: "Masala chai, traditional sweets, porridge",
-    img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=premium%20natural%20brown%20sugar%20in%20ceramic%20bowl%20with%20sugarcane%20stalks%20cinnamon%20cardamom%20rustic%20indian%20kitchen%20morning%20light%20warm%20tones%20food%20photography&image_size=portrait_4_3"
+    img: "/amrut/2.png"
   },
   {
     name: "Sanjivani Organic Manure",
     tagline: "From our press mud, back to your fields.",
     size: "25kg · 50kg sacks",
     use: "Sugarcane, horticulture, vegetables, orchards",
-    img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=sanjivani%20organic%20manure%20sacks%20stacked%20at%20factory%20yard%20rich%20compost%20soil%20in%20hand%20green%20sugarcane%20field%20background%20agriculture%20product%20photography&image_size=portrait_4_3"
+    img: "/amrut/3.png"
   }
 ];
 
@@ -119,9 +119,9 @@ export default function AmrutSanjivani() {
             >
               <div className="relative rounded-[32px] md:rounded-[40px] overflow-hidden aspect-[4/3] bg-neutral-cream">
                 <img
-                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=modern%20fully%20automated%20sugar%20packaging%20line%20amrut%20sanjivani%20bags%20moving%20on%20conveyor%20belt%20robotic%20palletizer%20workers%20in%20white%20uniforms%20clean%20hygienic%20industrial%20interior&image_size=landscape_4_3"
+                  src="/amrut/Factory.JPG"
                   alt="Modern packaging line"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark/80 via-neutral-dark/10 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-neutral-light max-w-lg">

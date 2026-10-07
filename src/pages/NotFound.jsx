@@ -81,11 +81,11 @@ export default function NotFound() {
                   Back to Home
                 </Link>
                 <Link
-                  to="/cane-development"
+                  to="/about"
                   className="group inline-flex items-center gap-2 px-6 py-4 rounded-full bg-white border border-neutral-dark/10 hover:border-harvest-gold hover:bg-harvest-gold/5 text-neutral-dark text-sm md:text-base font-semibold transition-all"
                 >
                   <Sprout size={16} className="group-hover:rotate-6 transition-transform" />
-                  Explore Farmer Programs
+                  Our Story
                 </Link>
                 <button
                   onClick={() => window.history.back()}

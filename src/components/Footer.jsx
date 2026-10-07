@@ -24,7 +24,6 @@ const footerLinks = [
     links: [
       { to: "/about", label: "Our Story & Legacy" },
       { to: "/about#leadership", label: "Leadership" },
-      { to: "/cane-development", label: "Farmer Support" },
       { to: "/sustainability", label: "Sustainability" },
       { to: "/contact", label: "Contact Factory" }
     ]

@@ -3,39 +3,44 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
-  Sprout,
   Candy,
   Droplet,
   Wind,
   Layers,
   Flame,
-  Recycle,
-  Shield
+  Recycle
 } from "lucide-react";
 import SEO from "../components/SEO";
 import ByProductCard from "../components/ByProductCard";
 import CircularEconomyDiagram from "../components/CircularEconomyDiagram";
-import { byProducts } from "../data/products";
+import { mainProduct, byProducts } from "../data/products";
 
 const heroSlides = ["/home1.png", "/home2.png", "/home3.png"];
 const heroImage = heroSlides[0];
 
 const productQuicklinks = [
-  { key: "sugar", name: "Refined Sugar", Icon: Candy, tone: "text-harvest-gold-dark bg-harvest-gold/10" },
-  { key: "molasses", name: "Molasses", Icon: Droplet, tone: "text-earth-brown-dark bg-earth-brown/10" },
-  { key: "bagasse", name: "Bagasse", Icon: Wind, tone: "text-neutral-dark bg-neutral-dark/5" },
-  { key: "press-mud", name: "Press Mud", Icon: Layers, tone: "text-earth-brown bg-earth-brown/10" },
-  { key: "ethanol", name: "Ethanol", Icon: Flame, tone: "text-cane-green-dark bg-cane-green/10" }
+  { key: "sugar", name: "Refined Sugar", Icon: Candy, tone: "text-harvest-gold-dark bg-harvest-gold/10", image: mainProduct.image },
+  { key: "molasses", name: "Molasses", Icon: Droplet, tone: "text-earth-brown-dark bg-earth-brown/10", image: byProducts[0].image },
+  { key: "bagasse", name: "Bagasse", Icon: Wind, tone: "text-neutral-dark bg-neutral-dark/5", image: byProducts[1].image },
+  { key: "press-mud", name: "Press Mud", Icon: Layers, tone: "text-earth-brown bg-earth-brown/10", image: byProducts[2].image },
+  { key: "ethanol", name: "Ethanol", Icon: Flame, tone: "text-cane-green-dark bg-cane-green/10", image: byProducts[3].image }
 ];
 
 export default function Home() {
   const [slideIndex, setSlideIndex] = useState(0);
 
   useEffect(() => {
+    heroSlides.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
+  useEffect(() => {
     if (heroSlides.length < 2) return;
     const t = setInterval(() => {
       setSlideIndex((i) => (i + 1) % heroSlides.length);
-    }, 3500);
+    }, 4000);
     return () => clearInterval(t);
   }, []);
   return (
@@ -49,27 +54,22 @@ export default function Home() {
       />
 
       <section className="relative min-h-[100vh] md:min-h-[100vh] overflow-hidden">
-        <AnimatePresence mode="wait">
-          {heroSlides.map(
-            (src, i) =>
-              i === slideIndex && (
-                <motion.img
-                  key={i}
-                  src={src}
-                  alt=""
-                  aria-hidden
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0 w-full h-full object-cover object-center"
-                  onError={(e) => {
-                    e.currentTarget.style.display = "none";
-                  }}
-                />
-              )
-          )}
-        </AnimatePresence>
+        {heroSlides.map((src, i) => (
+          <motion.img
+            key={src}
+            src={src}
+            alt=""
+            aria-hidden
+            initial={{ opacity: i === 0 ? 1 : 0 }}
+            animate={{ opacity: i === slideIndex ? 1 : 0 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 w-full h-full object-cover object-center"
+            style={{ zIndex: i === slideIndex ? 1 : 0 }}
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+        ))}
 
         {heroSlides.length > 1 && (
           <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
@@ -191,14 +191,24 @@ export default function Home() {
               <Link
                 key={p.key}
                 to="/products"
-                className="group rounded-2xl bg-white border border-neutral-dark/6 p-4 hover:border-cane-green/25 hover:shadow-[0_14px_35px_-18px_rgba(46,125,50,0.25)] transition-all"
+                className="group rounded-2xl bg-white border border-neutral-dark/6 overflow-hidden hover:border-cane-green/25 hover:shadow-[0_14px_35px_-18px_rgba(46,125,50,0.25)] transition-all flex flex-col"
               >
-                <span className={`w-10 h-10 rounded-xl flex items-center justify-center mb-3 ${p.tone}`}>
-                  <p.Icon size={18} />
-                </span>
-                <p className="text-sm font-semibold text-neutral-dark leading-snug group-hover:text-cane-green-dark transition-colors">
-                  {p.name}
-                </p>
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" />
+                  <span className={`absolute bottom-2.5 left-2.5 w-8 h-8 rounded-lg flex items-center justify-center backdrop-blur-sm bg-white/85 border border-white/50 ${p.tone}`}>
+                    <p.Icon size={15} />
+                  </span>
+                </div>
+                <div className="p-3.5">
+                  <p className="text-[13px] md:text-sm font-semibold text-neutral-dark leading-snug group-hover:text-cane-green-dark transition-colors">
+                    {p.name}
+                  </p>
+                </div>
               </Link>
             ))}
           </div>
@@ -221,130 +231,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-[40px] md:rounded-[48px] overflow-hidden bg-cane-green-dark text-neutral-light p-8 md:p-14 lg:p-18">
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-cover bg-center opacity-15"
-              style={{
-                backgroundImage:
-                  "url('https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=indian%20farmers%20gathered%20at%20agriculture%20extension%20training%20program%20demonstrating%20modern%20farming%20tools%20warm%20community%20atmosphere&image_size=landscape_16_9')"
-              }}
-            />
-            <div
-              aria-hidden
-              className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-harvest-gold/20 blur-3xl"
-            />
-            <div className="relative grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-[11px] font-semibold uppercase tracking-[0.2em] mb-6">
-                  <Sprout size={13} />
-                  Cane Development Program
-                </div>
-                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight">
-                  Empowering Farmers. <br />
-                  <span className="text-harvest-gold">Enriching Land.</span>
-                </h2>
-                <p className="mt-5 text-sm md:text-base text-white/80 leading-relaxed max-w-lg">
-                  Twelve structured programs — seeds, soil testing, drone spraying, drip
-                  financing — so every farmer gets the inputs and advice to grow more, with less.
-                </p>
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {[
-                    "Soil & Water Testing",
-                    "Subsidized Seeds",
-                    "Drip Irrigation Finance",
-                    "Drone Spraying",
-                    "Organic Manure",
-                    "Crop Insurance Help"
-                  ].map((t) => (
-                    <span
-                      key={t}
-                      className="text-[12px] px-3 py-1.5 rounded-full bg-white/8 border border-white/10 text-white/80"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-8 flex flex-wrap gap-3.5">
-                  <Link
-                    to="/cane-development"
-                    className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-harvest-gold hover:bg-harvest-gold-light text-neutral-dark text-sm font-semibold transition-colors"
-                  >
-                    See All 12 Programs
-                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
-                  </Link>
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 border border-white/15 hover:bg-white/15 text-white text-sm font-semibold transition-colors"
-                  >
-                    <Shield size={15} />
-                    Talk to a Cane Officer
-                  </Link>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.15 }}
-                className="grid grid-cols-2 gap-3 md:gap-4"
-              >
-                {[
-                  {
-                    t: "Cane Seed Program",
-                    d: "Three-tier certified seed multiplication.",
-                    img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=close%20up%20of%20healthy%20sugarcane%20seed%20setts%20being%20selected%20and%20treated%20at%20farm%20nursery%20agriculture%20macro%20photography&image_size=square"
-                  },
-                  {
-                    t: "Soil Health Lab",
-                    d: "NPK + micronutrient analysis — results in 48h.",
-                    img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=soil%20testing%20laboratory%20indian%20agriculture%20extension%20officer%20analyzing%20soil%20sample%20test%20tubes%20colorful%20reagents%20professional%20lighting&image_size=square"
-                  },
-                  {
-                    t: "Drip Installation",
-                    d: "4% simple-interest financing + subsidy support.",
-                    img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=technician%20installing%20drip%20irrigation%20system%20in%20young%20sugarcane%20field%20water%20droplets%20on%20tubes%20rural%20india&image_size=square"
-                  },
-                  {
-                    t: "Drone Spraying",
-                    d: "12-liter agri-drones — ₹60/acre for members.",
-                    img: "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=agricultural%20drone%20low%20altitude%20spraying%20fertilizer%20on%20sugarcane%20field%20india%20mist%20visible%20sunny%20day%20drone%20pilot%20observing&image_size=square"
-                  }
-                ].map((it, i) => (
-                  <div
-                    key={it.t}
-                    className={`rounded-[24px] overflow-hidden bg-white/[0.05] border border-white/10 backdrop-blur ${
-                      i === 0 ? "md:mt-8" : ""
-                    } ${i === 3 ? "md:-mt-8" : ""}`}
-                  >
-                    <div className="aspect-[4/3] overflow-hidden">
-                      <img
-                        src={it.img}
-                        alt={it.t}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <p className="text-sm font-semibold leading-snug">{it.t}</p>
-                      <p className="mt-1.5 text-[12px] text-white/65 leading-relaxed">{it.d}</p>
-                    </div>
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative py-20 md:py-28 bg-neutral-light">
+      <section className="relative py-20 md:py-28" style={{ backgroundColor: "#F8F7F2" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-12 md:mb-14">
             <div>

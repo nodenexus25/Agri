@@ -45,9 +45,9 @@ export default function Products() {
               className="lg:col-span-3 relative rounded-[36px] md:rounded-[44px] overflow-hidden aspect-[5/4] md:aspect-[16/10] border border-neutral-dark/6 bg-neutral-cream"
             >
               <img
-                src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=studio%20product%20shot%20three%20varieties%20of%20sugar%20-%20sparkling%20white%20crystal%2C%20raw%20amber%20sugar%2C%20natural%20brown%20-%20in%20elegant%20glass%20jars%20and%20ceramic%20bowls%20on%20linen%20with%20fresh%20sugarcane%20stalks%20arrangement%20soft%20natural%20light&image_size=landscape_4_3"
+                src={mainProduct.image}
                 alt="Refined Sugar range — white, raw, brown"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
               />
               <div className="absolute top-5 left-5 flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur border border-white/50 text-[11px] font-semibold uppercase tracking-[0.16em] text-cane-green-dark">
@@ -60,10 +60,10 @@ export default function Products() {
               </div>
               <div className="absolute bottom-5 right-5 rounded-2xl bg-white/95 backdrop-blur px-4 py-3 border border-white shadow-[0_20px_40px_-24px_rgba(0,0,0,0.2)]">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-mid">
-                  Dispatch rate
+                  Dispatch
                 </p>
                 <p className="mt-0.5 font-display text-xl md:text-2xl font-semibold text-neutral-dark">
-                  350+ trucks/day
+                  Season-Long Capacity
                 </p>
               </div>
             </motion.div>
@@ -90,7 +90,7 @@ export default function Products() {
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-mid mb-3">
                   Available Variants
                 </p>
-                <ul className="grid sm:grid-cols-3 gap-2.5">
+                <ul className="grid sm:grid-cols-3 gap-2.5 mb-4">
                   {mainProduct.variants.map((v, i) => (
                     <li
                       key={v}
@@ -111,6 +111,33 @@ export default function Products() {
                     </li>
                   ))}
                 </ul>
+
+                <div className="grid grid-cols-2 gap-3">
+                  <figure className="relative overflow-hidden rounded-[22px] border border-neutral-dark/6 bg-neutral-cream aspect-[4/3]">
+                    <img
+                      src="/amrut/1.png"
+                      alt="White Crystal Sugar — fine, pure, glossy crystals"
+                      className="w-full h-full object-cover"
+                    />
+                    <figcaption className="absolute bottom-3 left-3 right-3 rounded-xl bg-white/90 backdrop-blur px-3 py-1.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-cane-green-dark">
+                        White Crystal
+                      </p>
+                    </figcaption>
+                  </figure>
+                  <figure className="relative overflow-hidden rounded-[22px] border border-neutral-dark/6 bg-neutral-cream aspect-[4/3]">
+                    <img
+                      src="/amrut/2.png"
+                      alt="Natural Brown Sugar — unrefined for chai and laddoos"
+                      className="w-full h-full object-cover"
+                    />
+                    <figcaption className="absolute bottom-3 left-3 right-3 rounded-xl bg-white/90 backdrop-blur px-3 py-1.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-harvest-gold-dark">
+                        Natural Brown
+                      </p>
+                    </figcaption>
+                  </figure>
+                </div>
               </div>
 
               <div className="mt-8 rounded-3xl bg-white border border-neutral-dark/6 p-5 md:p-6">
@@ -206,69 +233,97 @@ export default function Products() {
 
       <section className="relative py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-[40px] md:rounded-[48px] overflow-hidden bg-neutral-dark text-neutral-light p-8 md:p-14 lg:p-18">
-            <div
-              aria-hidden
-              className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_25%_30%,rgba(198,142,23,0.8),transparent_50%),radial-gradient(circle_at_80%_75%,rgba(46,125,50,0.7),transparent_55%)]"
-            />
-            <div className="relative grid lg:grid-cols-5 gap-10 items-center">
-              <div className="lg:col-span-3">
-                <p className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-[11px] font-semibold uppercase tracking-[0.2em] mb-6">
+          <div className="relative rounded-[40px] md:rounded-[48px] overflow-hidden p-8 md:p-14 lg:p-18" style={{ backgroundColor: "#F8F7F2" }}>
+            <div className="relative grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+              <div className="lg:col-span-5 space-y-6">
+                <p className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-cane-green-dark/5 border border-cane-green-dark/10 text-[11px] font-semibold uppercase tracking-[0.2em] text-cane-green-dark">
                   <Candy size={13} />
-                  Group Synergy
+                  Amrut Sanjivani · Field to Table
                 </p>
-                <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-semibold leading-[1.05] tracking-tight max-w-3xl">
-                  See how our <span className="text-harvest-gold">ethanol</span> powers the Chemical Division.
+                <h2 className="font-display text-4xl md:text-5xl font-semibold leading-[1.05] tracking-tight text-neutral-dark max-w-xl">
+                  From the same fields — refined sugar, brown sugar, and <span className="text-harvest-gold-dark">organic manure</span> back to the soil.
                 </h2>
-                <p className="mt-5 text-sm md:text-base text-white/78 leading-relaxed max-w-xl">
-                  C-heavy molasses and end syrup flow directly by pipeline to Sanjivani Chemical
-                  Division — becoming E20 ethanol, solvents, and hand sanitizers. A single source.
-                  A closed loop.
+                <p className="text-sm md:text-[15px] text-neutral-dark/75 leading-relaxed max-w-lg">
+                  Every by-product returns value — bagasse powers the factory, press
+                  mud rebuilds farm soil, and molasses fuels E20 ethanol through the
+                  Chemical Division. One cooperative. Four harvest-grade outputs.
                 </p>
-                <div className="mt-8 grid sm:grid-cols-3 gap-3 max-w-xl">
+                <div className="grid sm:grid-cols-3 gap-3 max-w-xl">
                   {[
-                    { k: "Molasses routed", v: "~400 MT/day" },
-                    { k: "Ethanol output", v: "~90 KL/day" },
-                    { k: "Pipeline", v: "Direct feed" }
+                    { k: "Refined Sugar", v: "Food Grade" },
+                    { k: "Organic Manure", v: "Farm Return" },
+                    { k: "Ethanol", v: "E20 – Ready" }
                   ].map((s) => (
-                    <div key={s.k} className="rounded-2xl bg-white/[0.06] border border-white/10 p-4">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/50">
+                    <div key={s.k} className="rounded-2xl bg-white border border-neutral-dark/6 p-4 shadow-[0_8px_20px_-18px_rgba(27,94,32,0.25)]">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-cane-green-dark/70">
                         {s.k}
                       </p>
-                      <p className="mt-1 font-display text-lg font-semibold">{s.v}</p>
+                      <p className="mt-1 font-display text-lg font-semibold text-neutral-dark">
+                        {s.v}
+                      </p>
                     </div>
                   ))}
                 </div>
+                <div className="pt-1 flex flex-wrap gap-3">
+                  <Link
+                    to="/amrut-sanjivani"
+                    className="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-neutral-dark hover:bg-cane-green-dark text-white text-sm font-semibold transition-colors"
+                  >
+                    Explore Consumer Brand
+                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                  </Link>
+                  <Link
+                    to="/sustainability"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-neutral-dark/10 bg-white hover:border-cane-green-dark/40 hover:bg-cane-green-dark/[0.04] text-neutral-dark text-sm font-semibold transition-all"
+                  >
+                    Full Circular Story
+                  </Link>
+                </div>
               </div>
-              <div className="lg:col-span-2 flex flex-col gap-3">
-                <a
-                  href="#"
-                  className="group flex items-center justify-between gap-4 rounded-2xl bg-cane-green hover:bg-cane-green-light text-white p-5 transition-colors"
-                >
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/70 mb-1.5">
-                      Visit
-                    </p>
-                    <p className="font-display text-xl font-semibold leading-tight">
-                      Chemical Division Website
-                    </p>
-                  </div>
-                  <ArrowRight size={18} className="shrink-0 group-hover:translate-x-0.5 transition-transform" />
-                </a>
-                <Link
-                  to="/sustainability"
-                  className="group flex items-center justify-between gap-4 rounded-2xl bg-white/[0.07] border border-white/10 hover:bg-white/[0.11] p-5 transition-colors"
-                >
-                  <div>
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-white/50 mb-1.5">
-                      Learn
-                    </p>
-                    <p className="text-base font-semibold leading-snug">
-                      Full circular economy story
-                    </p>
-                  </div>
-                  <ArrowRight size={16} className="shrink-0 text-white/50 group-hover:text-white transition-colors" />
-                </Link>
+
+              <div className="lg:col-span-7">
+                <div className="grid grid-cols-6 grid-rows-6 gap-2.5 md:gap-3 h-[520px] md:h-[640px]">
+                  <figure className="col-span-6 row-span-3 relative overflow-hidden rounded-[26px]">
+                    <img
+                      src="/amrut/Factory.JPG"
+                      alt="Sanjivani Sahakari Sakhar Karkhana factory entrance"
+                      className="w-full h-full object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-dark/55 via-neutral-dark/5 to-transparent" />
+                    <figcaption className="absolute bottom-4 left-4 md:bottom-5 md:left-5 right-4 md:right-5 flex items-end justify-between gap-4">
+                      <div className="text-neutral-light max-w-md">
+                        <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-harvest-gold mb-1">
+                          Sanjivani Sahakari Sakhar Karkhana
+                        </p>
+                        <p className="font-display text-xl md:text-2xl font-semibold leading-tight">
+                          Cooperative factory gate — where every truck begins the loop.
+                        </p>
+                      </div>
+                    </figcaption>
+                  </figure>
+
+                  <figure className="col-span-3 row-span-3 overflow-hidden rounded-[26px]">
+                    <img
+                      src="/amrut/1.png"
+                      alt="White Crystal Sugar — pure, glossy crystals"
+                      className="w-full h-full object-cover"
+                    />
+                  </figure>
+                  <figure className="col-span-3 row-span-2 overflow-hidden rounded-[26px]">
+                    <img
+                      src="/amrut/2.png"
+                      alt="Natural Brown Sugar — chai and laddoos"
+                      className="w-full h-full object-cover"
+                    />
+                  </figure>
+                  <figure className="col-span-3 row-span-1 overflow-hidden rounded-[26px]">
+                    <img
+                      src="/amrut/3.png"
+                      alt="Organic manure composted from press mud — returned to fields"
+                      className="w-full h-full object-cover"
+                    />
+                  </figure>
+                </div>
               </div>
             </div>
           </div>

@@ -6,7 +6,6 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { to: "/", label: "Home" },
   { to: "/about", label: "Our Story" },
-  { to: "/cane-development", label: "Farmer Support" },
   { to: "/products", label: "Products" },
   { to: "/amrut-sanjivani", label: "Amrut Sanjivani" },
   { to: "/sustainability", label: "Sustainability" },
@@ -19,7 +18,7 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -44,9 +43,9 @@ export default function Navbar() {
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
           className={`relative rounded-2xl md:rounded-[999px] border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden ${
             scrolled
-              ? "bg-neutral-light/80 border-neutral-dark/10 shadow-[0_12px_40px_-12px_rgba(26,26,26,0.18)]"
-              : "bg-neutral-light/55 border-white/40"
-          } backdrop-blur-xl [backdrop-filter:blur(16px)_saturate(1.5)]`}
+              ? "bg-neutral-light/82 border-neutral-dark/10 shadow-[0_12px_40px_-12px_rgba(26,26,26,0.18)]"
+              : "bg-neutral-light/50 border-white/30"
+          } [backdrop-filter:blur(16px)_saturate(1.6)]`}
         >
           <div className="flex items-center justify-between pl-5 sm:pl-7 pr-3 sm:pr-5 h-[72px] md:h-20">
             <Link to="/" className="flex items-center gap-4 group">
@@ -145,7 +144,7 @@ export default function Navbar() {
                       to="/contact"
                       className="block w-full text-center px-5 py-3 rounded-2xl bg-neutral-dark text-neutral-light text-sm font-medium"
                     >
-                      Contact Farmer Helpdesk
+                      Contact the Factory
                     </Link>
                   </div>
                 </div>

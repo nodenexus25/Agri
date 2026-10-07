@@ -20,16 +20,16 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contact — Farmer Helpdesk & Factory Enquiries"
-        description="Get in touch: farmer support requests, general product enquiries, distributor partnerships. Cooperative office address, phone, email, and working hours for Sanjivani Agriculture Division, Buldhana, Maharashtra."
+        title="Contact the Cooperative — Factory & Product Enquiries"
+        description="Get in touch: general product enquiries, distributor partnerships, and member services. Cooperative office address, phone, email, and working hours for Sanjivani Agriculture Division, Buldhana, Maharashtra."
         keywords="sanjivani sugar factory address buldhana, farmer helpdesk sugar factory contact, juice to ethanol distillery enquiry, sugar cooperative maharashtra email"
         path="/contact"
       />
 
       <PageHeader
-        eyebrow="Contact & Farmer Helpdesk"
-        title="One factory. Two teams. Every question answered."
-        lead="Choose the track that fits — sales & partnership, or our Cane Development helpdesk. Average response under 48 hours."
+        eyebrow="Contact the Cooperative"
+        title="One factory. Every question answered."
+        lead="Product, partnership, or membership enquiries — reach the right desk directly. Average response under 48 hours."
         backgroundImage={heroImage}
         tone="neutral"
       />
@@ -108,8 +108,7 @@ export default function Contact() {
                 </h2>
                 <p className="mt-5 text-sm md:text-base text-white/80 leading-relaxed max-w-xl">
                   Head office is on factory premises — follow the 'Sugar Receipt Yard' gate to the
-                  admin building. Cane Development desk on ground floor, no appointment needed.
-                  Guest rooms available for outstation delegates.
+                  admin building, ground floor. Guest rooms available for outstation delegates.
                 </p>
               </div>
               <div className="lg:col-span-2 md:pl-6 space-y-3.5">
@@ -144,11 +143,11 @@ export default function Contact() {
                     Call Factory
                   </a>
                   <Link
-                    to="/cane-development"
+                    to="/contact"
                     className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/10 border border-white/15 hover:bg-white/15 text-white text-sm font-semibold transition-colors"
                   >
-                    <MapPin size={14} />
-                    Farmer Programs
+                    <Mail size={14} />
+                    Email Us
                     <ArrowRight size={12} />
                   </Link>
                 </div>

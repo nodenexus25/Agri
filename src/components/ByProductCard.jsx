@@ -1,15 +1,7 @@
-import * as LucideIcons from "lucide-react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Check } from "lucide-react";
 
-function resolveIcon(name, size = 20, stroke = 2) {
-  const Icon = LucideIcons[name] || LucideIcons.Package;
-  return <Icon size={size} strokeWidth={stroke} />;
-}
-
 export default function ByProductCard({ product, index }) {
-  const icon = resolveIcon(product.icon, 22, 2);
-
   return (
     <motion.article
       initial={{ opacity: 0, y: 28 }}
@@ -24,10 +16,7 @@ export default function ByProductCard({ product, index }) {
       />
 
       <div className="relative flex-1">
-        <div className="flex items-start justify-between mb-6">
-          <div className="w-14 h-14 md:w-15 md:h-15 rounded-2xl bg-gradient-to-br from-harvest-gold/15 to-harvest-gold/5 text-harvest-gold-dark flex items-center justify-center border border-harvest-gold/15">
-            {icon}
-          </div>
+        <div className="flex items-start justify-end mb-5">
           <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-cane-green-dark/70 bg-cane-green/8 px-3 py-1.5 rounded-full">
             By-Product
           </span>
@@ -44,21 +33,6 @@ export default function ByProductCard({ product, index }) {
         <p className="mt-3 text-sm md:text-[15px] text-neutral-dark/70 leading-relaxed">
           {product.description}
         </p>
-
-        {product.specs && (
-          <div className="mt-5 grid grid-cols-3 gap-3">
-            {Object.entries(product.specs).map(([k, v]) => (
-              <div key={k} className="rounded-2xl bg-neutral-light p-3">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-neutral-mid">
-                  {k}
-                </p>
-                <p className="mt-1 text-[13px] font-semibold text-neutral-dark leading-snug">
-                  {v}
-                </p>
-              </div>
-            ))}
-          </div>
-        )}
 
         {product.industries && (
           <div className="mt-5">

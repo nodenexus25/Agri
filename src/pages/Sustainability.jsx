@@ -160,8 +160,8 @@ export default function Sustainability() {
               </h2>
               <p className="mt-5 text-[15px] md:text-base text-neutral-dark/75 leading-relaxed">
                 Our registered command area is where the real green work happens — micro-irrigation,
-                farm ponds, soil carbon restoration, and sapling distribution. All Cane Development
-                programs carry a sustainability layer underneath.
+                farm ponds, soil carbon restoration, and sapling distribution. Every village-level
+                initiative carries a sustainability layer underneath.
               </p>
               <ul className="mt-7 space-y-3">
                 {[
@@ -192,30 +192,30 @@ export default function Sustainability() {
             >
               <figure className="col-span-6 row-span-3 rounded-[26px] overflow-hidden">
                 <img
-                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=bagasse%20cogeneration%20power%20plant%20at%20sugar%20factory%20turbine%20hall%20steam%20pipes%20modern%20control%20room%20industrial%20photography%20warm%20light&image_size=landscape_4_3"
-                  alt="Bagasse cogeneration plant"
-                  className="w-full h-full object-cover"
+                  src="/command area/3.png"
+                  alt="Bagasse cogeneration plant — factory with chimneys powering operations"
+                  className="w-full h-full object-cover object-center"
                 />
               </figure>
               <figure className="col-span-3 row-span-3 rounded-[26px] overflow-hidden">
                 <img
-                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=press%20mud%20composting%20windrows%20factory%20compost%20turner%20machine%20worker%20in%20uniform%20rich%20organic%20soil%20sugarcane%20background%20morning%20light&image_size=portrait_4_3"
-                  alt="Press mud composting"
+                  src="/command area/4.png"
+                  alt="Drone crop monitoring — precision farming in the command area"
                   className="w-full h-full object-cover"
                 />
               </figure>
               <figure className="col-span-3 row-span-2 rounded-[26px] overflow-hidden">
                 <img
-                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=water%20treatment%20zero%20liquid%20discharge%20plant%20pipes%20valves%20sensors%20clean%20modern%20industrial%20facility%20professional%20photography&image_size=square"
-                  alt="Water treatment ZLD"
-                  className="w-full h-full object-cover"
+                  src="/command area/2.png"
+                  alt="Water treatment & farm pond — zero liquid discharge in the command area"
+                  className="w-full h-full object-cover object-center"
                 />
               </figure>
               <figure className="col-span-3 row-span-1 rounded-[26px] overflow-hidden">
                 <img
-                  src="https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=indian%20farmer%20planting%20sapling%20on%20farm%20bund%20agroforestry%20children%20helping%20village%20afforestation%20drive%20monsoon%20green%20fields&image_size=landscape_16_9"
-                  alt="Afforestation drive"
-                  className="w-full h-full object-cover"
+                  src="/command area/1.png"
+                  alt="Drip irrigation lines on young cane — precision water use"
+                  className="w-full h-full object-cover object-center"
                 />
               </figure>
             </motion.div>
